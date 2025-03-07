@@ -5,11 +5,11 @@ using UnityEngine;
 public class SC_Package : MonoBehaviour
 {
     [Tooltip("Settings")]
-    [SerializeField] private packageTypes g_packageType;
-    [SerializeField] private List<PackageStampColor> g_packageStampColors;
+    [SerializeField] private packageTypes _packageType;
+    [SerializeField] private List<PackageStampColor> _packageStampColors;
 
     [Tooltip("Flags")]
-    private List<PackageStampColor> g_currentStamps = new List<PackageStampColor>();
+    private List<PackageStampColor> _currentStamps = new List<PackageStampColor>();
 
     public Action OnAddStamp;
 
@@ -18,14 +18,14 @@ public class SC_Package : MonoBehaviour
     {
         OnAddStamp?.Invoke();
 
-        g_currentStamps.Add(color);
+        _currentStamps.Add(color);
     }
 
     private bool CheckForStamps()
     {
-        List<PackageStampColor> checksLeft = g_currentStamps;
+        List<PackageStampColor> checksLeft = _currentStamps;
 
-        foreach (var stamp in g_packageStampColors)
+        foreach (var stamp in _packageStampColors)
         {
             if (checksLeft.Contains(stamp))
                 checksLeft.Remove(stamp);
