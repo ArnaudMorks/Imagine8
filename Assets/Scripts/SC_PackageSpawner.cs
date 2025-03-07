@@ -2,13 +2,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PackageList))]
-public class PackageSpawner : MonoBehaviour
+[RequireComponent(typeof(SC_PackageList))]
+public class SC_PackageSpawner : MonoBehaviour
 {
     [SerializeField] private Vector3 _startPosition;
 
-    private PackageList _packageList;
-    private List<Package> _packages;
+    private SC_PackageList _packageList;
+    private List<SC_Package> _packages;
 
     private int _currentPackage = 0;
     private GameObject _lastPackage;
@@ -19,7 +19,7 @@ public class PackageSpawner : MonoBehaviour
 
     private void Awake()
     {
-        _packageList = GetComponent<PackageList>();
+        _packageList = GetComponent<SC_PackageList>();
         _packages = _packageList.GetPackages();
     }
 
