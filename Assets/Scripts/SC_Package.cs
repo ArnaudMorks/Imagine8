@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SC_Package : MonoBehaviour
 {
-    [Tooltip("Settings")]
+    [Tooltip("Attributes")]
     [SerializeField] private packageTypes _packageType;
     [SerializeField] private List<PackageStampColor> _packageStampColors;
 
@@ -13,6 +13,21 @@ public class SC_Package : MonoBehaviour
 
     public Action OnAddStamp;
 
+    /// <summary>
+    /// Call to check if all Attributes are matching with the Flags.
+    /// </summary>
+    /// <returns>Returns true if all values are matching.</returns>
+    public bool CheckFlags()
+    {
+        bool StampFlag = CheckForStamps();
+
+        if (StampFlag)
+        {
+            return true;
+        }
+
+        return false;
+    }
 
     private void AddStamp(PackageStampColor color)
     {
