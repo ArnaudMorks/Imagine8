@@ -2,29 +2,30 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Package : MonoBehaviour
+public class SC_Package : MonoBehaviour
 {
     [Tooltip("Settings")]
-    [SerializeField] private packageTypes _packageType;
-    [SerializeField] private List<PackageStampColor> _packageStampColors;
+    [SerializeField] private packageTypes g_packageType;
+    [SerializeField] private List<PackageStampColor> g_packageStampColors;
 
     [Tooltip("Flags")]
-    private List<PackageStampColor> _currentStamps = new List<PackageStampColor>();
+    private List<PackageStampColor> g_currentStamps = new List<PackageStampColor>();
 
-    private Action OnAddStamp;
+    public Action OnAddStamp;
+
 
     private void AddStamp(PackageStampColor color)
     {
         OnAddStamp?.Invoke();
 
-        _currentStamps.Add(color);
+        g_currentStamps.Add(color);
     }
 
     private bool CheckForStamps()
     {
-        List<PackageStampColor> checksLeft = _currentStamps;
+        List<PackageStampColor> checksLeft = g_currentStamps;
 
-        foreach (var stamp in _packageStampColors)
+        foreach (var stamp in g_packageStampColors)
         {
             if (checksLeft.Contains(stamp))
                 checksLeft.Remove(stamp);
