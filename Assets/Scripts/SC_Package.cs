@@ -4,14 +4,25 @@ using UnityEngine;
 
 public class SC_Package : MonoBehaviour
 {
+    [Serializable]
+    struct StampValues
+    {
+        public PackageStampColor Color;
+        public PackageStampIcon Icon;
+    }
+
     [Tooltip("Attributes")]
     [SerializeField] private packageTypes _packageType;
-    [SerializeField] private List<PackageStampColor> _packageStampColors;
+    [SerializeField] private PackageDestination _destination;
+    [SerializeField] private List<StampValues> _stampValues;
 
     [Tooltip("Flags")]
-    private List<PackageStampColor> _currentStamps = new List<PackageStampColor>();
+    private packageTypes _currentPackageType;
+    private List<StampValues> _currentStamps = new List<StampValues>();
+    private PackageDestination _currentDestination;
 
     public Action OnAddStamp;
+
 
     /// <summary>
     /// Call to check if all Attributes are matching with the Flags.
@@ -19,28 +30,46 @@ public class SC_Package : MonoBehaviour
     /// <returns>Returns true if all values are matching.</returns>
     public bool CheckFlags()
     {
-        bool StampFlag = CheckForStamps();
+        if (_packageType == _currentPackageType) return false;
+        if (_destination == _currentDestination) return false;
+        if (CheckForStamps()) return false;
 
-        if (StampFlag)
-        {
-            return true;
-        }
-
-        return false;
+        return true;
     }
 
-    private void AddStamp(PackageStampColor color)
+    /// <summary>
+    /// Sets the type of package to be checked later if correct.
+    /// </summary>
+    /// <param name="type">the Enum that sets the type.</param>
+    public void SetPackageType(packageTypes type) => _currentPackageType = type;
+
+    /// <summary>
+    /// Sets the destination of package to be checked later if correct.
+    /// </summary>
+    /// <param name="destination">the Enum that sets the destination.</param>
+    public void SetDestination(PackageDestination destination) => _currentDestination = destination;
+
+    /// <summary>
+    /// Adds a stamp with a color and icon to be checked later if they are correct.
+    /// </summary>
+    /// <param name="color"></param>
+    /// <param name="icon"></param>
+    public void AddStamp(PackageStampColor color, PackageStampIcon icon)
     {
         OnAddStamp?.Invoke();
 
-        _currentStamps.Add(color);
+        StampValues stampValues = new StampValues();
+        stampValues.Color = color;
+        stampValues.Icon = icon;
+
+        _currentStamps.Add(stampValues);
     }
 
     private bool CheckForStamps()
     {
-        List<PackageStampColor> checksLeft = _currentStamps;
+        List<StampValues> checksLeft = _currentStamps;
 
-        foreach (var stamp in _packageStampColors)
+        foreach (var stamp in _stampValues)
         {
             if (checksLeft.Contains(stamp))
                 checksLeft.Remove(stamp);
