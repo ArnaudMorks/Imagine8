@@ -1,9 +1,9 @@
-using UnityEngine;
 
+using UnityEngine;
 public class SC_TestScript : MonoBehaviour
 {
-	private void Start()
-	{
+    private void Start()
+    {
 
-	}
+    }
 }
