@@ -19,10 +19,16 @@ public class SC_PlayerInput : MonoBehaviour
 	[SerializeField] private Vector3[] g_worldStampPositions;
 	[SerializeField] private float g_allWorldYStampPosition;
 
+	[SerializeField] private Vector2[] g_mouseToWorldEdgePositions;
+
+	[SerializeField] private Vector2 g_currentMouseToWorldOffset;
+
 
 	private void Start()
 	{
 		g_mouseStampPositions = SetStampCanvasToMousePositions(g_mouseStampPositions);
+		g_mouseToWorldEdgePositions = SetMouseToWorldEdgePositions(g_mouseToWorldEdgePositions,
+			g_mouseStampPositions, g_worldStampPositions);
 	}
 
 	private void Update()
@@ -46,6 +52,18 @@ public class SC_PlayerInput : MonoBehaviour
 		}
 
 		return stampPositions;
+	}
+
+	Vector2[] SetMouseToWorldEdgePositions(Vector2[] mouseToWorldEdgePositions,
+		Vector2[] mouseEdgePositions, Vector3[] worldEdgePositions)
+	{
+		for (int i = 0; i < 4; i++)		//"4" because there are four stamp positions
+		{
+			mouseToWorldEdgePositions[i].x = mouseEdgePositions[i].x / worldEdgePositions[i].x;
+			mouseToWorldEdgePositions[i].y = mouseEdgePositions[i].y / worldEdgePositions[i].z;
+		}
+
+		return mouseToWorldEdgePositions;
 	}
 
 }

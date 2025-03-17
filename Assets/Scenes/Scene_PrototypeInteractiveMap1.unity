@@ -28493,6 +28493,12 @@ MonoBehaviour:
   - {x: 1.56, y: 0, z: -1.49}
   - {x: 1.79, y: 0, z: -1.49}
   g_allWorldYStampPosition: 0.75
+  g_mouseToWorldEdgePositions:
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  - {x: 0, y: 0}
+  g_currentMouseToWorldOffset: {x: 0, y: 0}
 --- !u!1001 &1687185463
 PrefabInstance:
   m_ObjectHideFlags: 0
