@@ -1,14 +1,11 @@
 using System;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(SC_PackageList))]
 public class SC_PackageSpawner : MonoBehaviour
 {
     [SerializeField] private Vector3 _startPosition;
-
-    private SC_PackageList _packageList;
-    private List<SC_Package> _packages;
+    [SerializeField] private GameObject _packageList;
+    private SC_Package[] _packages;
 
     private int _currentPackage = 0;
     private GameObject _lastPackage;
@@ -17,14 +14,7 @@ public class SC_PackageSpawner : MonoBehaviour
     public Action OnDeSpawnedPackage;
     public Action OnFinishList;
 
-    private void Awake()
-    {
-        _packageList = GetComponent<SC_PackageList>();
-        _packages = _packageList.GetPackages();
-    }
-
-    ///REMOVE ONES THERE IS A GAME LOOP
-    private void Start() => SpawnPackage();
+    private void Awake() => _packages = _packageList.GetComponentsInChildren<SC_Package>();
 
     /// <summary>
     /// Tries to spawn the package and de-spawnes the older package.
@@ -33,7 +23,7 @@ public class SC_PackageSpawner : MonoBehaviour
     {
         if (_lastPackage != null) DeSpawnPackage();
 
-        if (_packages.Count >= _currentPackage)
+        if (_packages.Length <= _currentPackage)
         {
             StopSpawning();
             return;
@@ -60,5 +50,6 @@ public class SC_PackageSpawner : MonoBehaviour
     private void StopSpawning()
     {
         OnFinishList?.Invoke();
+        Debug.LogError("SPAWNER: No more Packages");
     }
 }
