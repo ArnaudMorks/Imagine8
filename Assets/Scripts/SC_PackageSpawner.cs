@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class SC_PackageSpawner : MonoBehaviour
 {
-    [SerializeField] private Vector3 _startPosition;
+    [SerializeField] private GameObject _startPosition;
     [SerializeField] private GameObject _packageList;
     private SC_Package[] _packages;
 
@@ -15,6 +15,9 @@ public class SC_PackageSpawner : MonoBehaviour
     public Action OnFinishList;
 
     private void Awake() => _packages = _packageList.GetComponentsInChildren<SC_Package>();
+
+    //REMOVE WHEN THERE IS A GAME LOOP
+    public void Start() => TrySpawnPackage();
 
     /// <summary>
     /// Tries to spawn the package and de-spawnes the older package.
@@ -36,7 +39,9 @@ public class SC_PackageSpawner : MonoBehaviour
     {
         OnSpawnedPackage?.Invoke();
 
-        _lastPackage = Instantiate(_packages[_currentPackage].gameObject);
+        _lastPackage = Instantiate(_packages[_currentPackage].gameObject,
+            _startPosition.transform.position, Quaternion.identity);
+
         _currentPackage++;
     }
 
