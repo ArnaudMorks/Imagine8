@@ -2,34 +2,16 @@ using UnityEngine;
 
 public class SC_DestinationLever : MonoBehaviour
 {
-    private SC_Package _currentPackage;
-    private SC_PackageSpawner _packageSpawner;
+    [SerializeField] private PackageDestination _packageDestination;
+    private SC_SendingManager _sendingManager;
 
-    private void Awake() => _packageSpawner = FindAnyObjectByType<SC_PackageSpawner>();
+    private void Awake() => _sendingManager = FindFirstObjectByType<SC_SendingManager>();
 
     /// <summary>
-    /// Tries to spawn a new packages and finish the old packages if possible.
+    /// Tries to set the package destination if there is a package in the Scene.
     /// </summary>
-    /// <param name="destination"> The Enum that dictates the destination of the package.</param>
-    /// <return> Returns success of sending a package.</return>
-    public bool TrySendPackage(PackageDestination destination)
+    public void SetDestination()
     {
-        if (_currentPackage == null) return false;
-
-        SendPackage(destination);
-        return true;
-    }
-
-    private void SendPackage(PackageDestination destination)
-    {
-        _currentPackage.SetDestination(destination);
-        _currentPackage.OnDestinationSet?.Invoke();
-
-        bool hasNewPackage = _packageSpawner.TrySpawnPackage();
-
-        if (!hasNewPackage)
-        {
-            //FUNCTIONALITY FOR ENDING STATE.
-        }
+        _sendingManager.TrySendPackage(_packageDestination);
     }
 }

@@ -41,7 +41,11 @@ public class SC_PackageSpawner : MonoBehaviour
     /// Gets the current package that is used inside of the game
     /// </summary>
     /// <returns> Reference to current package script.</returns>
-    public SC_Package GetCurrentPackage() => _packages[_currentPackage];
+    public SC_Package GetCurrentPackage()
+    {
+        if (_packages.Length <= _currentPackage) return null;
+        return _packages[_currentPackage];
+    }
 
     private void SpawnPackage()
     {
