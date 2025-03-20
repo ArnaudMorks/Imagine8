@@ -10,8 +10,10 @@ public class SC_DestinationLever : MonoBehaviour
     /// <summary>
     /// Tries to set the package destination if there is a package in the Scene.
     /// </summary>
-    public void SetDestination()
+    public void TrySetDestination()
     {
+        if (_sendingManager == null) return;
+
         _sendingManager.TrySendPackage(_packageDestination);
     }
 }

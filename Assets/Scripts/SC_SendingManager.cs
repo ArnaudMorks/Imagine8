@@ -14,6 +14,8 @@ public class SC_SendingManager : MonoBehaviour
     /// <return> Returns success of sending a package.</return>
     public bool TrySendPackage(PackageDestination destination)
     {
+        if (_packageSpawner == null) return false;
+
         _currentPackage = _packageSpawner.GetCurrentPackage();
 
         if (_currentPackage == null) return false;
