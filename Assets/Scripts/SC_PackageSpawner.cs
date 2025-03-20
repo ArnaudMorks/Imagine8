@@ -11,7 +11,7 @@ public class SC_PackageSpawner : MonoBehaviour
     private GameObject _lastPackage;
 
     public Action OnSpawnedPackage;
-    public Action OnDeSpawnedPackage;
+    public Action<GameObject> OnDeSpawnedPackage;
     public Action OnFinishList;
 
     private void Awake() => _packages = _packageList.GetComponentsInChildren<SC_Package>();
@@ -47,7 +47,7 @@ public class SC_PackageSpawner : MonoBehaviour
 
     private void DeSpawnPackage()
     {
-        OnDeSpawnedPackage?.Invoke();
+        OnDeSpawnedPackage?.Invoke(_lastPackage);
 
         Destroy(_lastPackage);
     }
@@ -55,6 +55,6 @@ public class SC_PackageSpawner : MonoBehaviour
     private void StopSpawning()
     {
         OnFinishList?.Invoke();
-        Debug.LogError("SPAWNER: No more Packages");
+        Debug.LogWarning("SPAWNER: No more Packages");
     }
 }
