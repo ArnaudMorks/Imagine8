@@ -4,8 +4,13 @@ public class SC_SendingManager : MonoBehaviour
 {
     private SC_Package _currentPackage;
     private SC_PackageSpawner _packageSpawner;
+    private SC_ResultDisplay _resultDisplay;
 
-    private void Awake() => _packageSpawner = FindAnyObjectByType<SC_PackageSpawner>();
+    private void Awake()
+    {
+        _resultDisplay = FindAnyObjectByType<SC_ResultDisplay>();
+        _packageSpawner = FindAnyObjectByType<SC_PackageSpawner>();
+    }
 
     /// <summary>
     /// Tries to spawn a new packages and finish the old packages if possible.
@@ -33,7 +38,7 @@ public class SC_SendingManager : MonoBehaviour
 
         if (!hasNewPackage)
         {
-            //FUNCTIONALITY FOR ENDING STATE.
+            _resultDisplay.SetResultScreen(true);
         }
     }
 }
