@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SC_ScoringSystem : MonoBehaviour
+public class SC_ScoringManager : MonoBehaviour
 {
     private SC_PackageSpawner _packageSpawner;
 
-    private Dictionary<SC_Package, bool> _currentScore = new Dictionary<SC_Package, bool>();
+    private Dictionary<SC_Package, bool> _packageResult = new Dictionary<SC_Package, bool>();
 
     private void Awake()
     {
@@ -21,7 +21,7 @@ public class SC_ScoringSystem : MonoBehaviour
     {
         int correctAmount = 0;
 
-        foreach (var score in _currentScore)
+        foreach (var score in _packageResult)
         {
             if (score.Value == true) correctAmount++;
         }
@@ -33,20 +33,19 @@ public class SC_ScoringSystem : MonoBehaviour
     /// Gets the amount of packages checked.
     /// </summary>
     /// <returns></returns>
-    public int GetMaxScoring() => _currentScore.Count;
+    public int GetMaxScoring() => _packageResult.Count;
 
     /// <summary>
     /// Clears the dictionary that tracks the score data.
     /// </summary>
-    public void ResetScoring() => _currentScore.Clear();
+    public void ResetScoring() => _packageResult.Clear();
 
     private void AddScoring(GameObject packageObject)
     {
         SC_Package package = packageObject.GetComponent<SC_Package>();
         if (package == null) return;
 
-        Debug.Log("ADDED");
         var correctness = package.CheckFlags();
-        _currentScore.Add(package, correctness);
+        _packageResult.Add(package, correctness);
     }
 }

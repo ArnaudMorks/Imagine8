@@ -2,8 +2,8 @@ using System;
 using TMPro;
 using UnityEngine;
 
-[RequireComponent(typeof(SC_ScoringSystem))]
-public class SC_ResultManager : MonoBehaviour
+[RequireComponent(typeof(SC_ScoringManager))]
+public class SC_ResultDisplay : MonoBehaviour
 {
     [SerializeField] private GameObject _resultScreen;
 
@@ -11,7 +11,7 @@ public class SC_ResultManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _DurationText;
 
-    private SC_ScoringSystem _ScoringSystem;
+    private SC_ScoringManager _ScoringSystem;
     private SC_PackageSpawner _PackageSpawner;
 
     public Action OnResultScreenEnabled;
@@ -21,10 +21,22 @@ public class SC_ResultManager : MonoBehaviour
     {
         _resultScreen.SetActive(false);
 
-        _ScoringSystem = GetComponent<SC_ScoringSystem>();
+        _ScoringSystem = GetComponent<SC_ScoringManager>();
 
         _PackageSpawner = FindFirstObjectByType<SC_PackageSpawner>();
         _PackageSpawner.OnFinishList += ShowResults;
+    }
+
+    /// <summary>
+    /// Sets the final state of the game.
+    /// </summary>
+    /// <param name="state"></param>
+    public void SetResultScreen(bool state)
+    {
+        _resultScreen.SetActive(state);
+
+        if (state) OnResultScreenEnabled?.Invoke();
+        else OnResultScreenDisabled?.Invoke();
     }
 
     private void ShowResults()
@@ -40,13 +52,4 @@ public class SC_ResultManager : MonoBehaviour
         string score = $"Score: {scoreAmount}/{maxScoreAmount}";
         _scoreText.text = score;
     }
-
-    private void SetResultScreen(bool state)
-    {
-        _resultScreen.SetActive(state);
-
-        if (state) OnResultScreenEnabled?.Invoke();
-        else OnResultScreenDisabled?.Invoke();
-    }
-
 }
