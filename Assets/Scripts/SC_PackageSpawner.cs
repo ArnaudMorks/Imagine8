@@ -11,11 +11,17 @@ public class SC_PackageSpawner : MonoBehaviour
     private int _currentPackage = 0;
     private GameObject _lastPackage;
 
+    public int packageAmount { get; private set; }
+
     public Action OnSpawnedPackage;
     public Action<GameObject> OnDeSpawnedPackage;
     public Action OnFinishList;
 
-    private void Awake() => _packages = _packageList.GetComponentsInChildren<SC_Package>();
+    private void Awake()
+    {
+        _packages = _packageList.GetComponentsInChildren<SC_Package>();
+        packageAmount = _packages.Length;
+    }
 
     //REMOVE WHEN THERE IS A GAME LOOP
     public void Start() => TrySpawnPackage();
@@ -50,12 +56,12 @@ public class SC_PackageSpawner : MonoBehaviour
 
     private void SpawnPackage()
     {
-        OnSpawnedPackage?.Invoke();
-
         _lastPackage = Instantiate(_packages[_currentPackage].gameObject,
             _startPosition.transform.position, Quaternion.identity);
 
         _currentPackage++;
+
+        OnSpawnedPackage?.Invoke();
     }
 
     private void DeSpawnPackage()
