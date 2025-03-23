@@ -31,7 +31,7 @@ namespace TimeSystem
         private bool _consoleShowActions = false;
 
         // Singleton reference
-        public static SC_TimeManager Instance { get; private set; } // Uppercase?
+        public static SC_TimeManager Instance { get; private set; }
 
         // Current Time
         private float _currentInGameTime;
