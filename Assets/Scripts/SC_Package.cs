@@ -22,6 +22,7 @@ public class SC_Package : MonoBehaviour
     private PackageDestination _currentDestination;
 
     public Action OnAddStamp;
+    public Action OnDestinationSet;
 
 
     /// <summary>
