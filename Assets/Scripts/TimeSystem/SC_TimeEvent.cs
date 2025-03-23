@@ -5,11 +5,6 @@
 // which other scripts can easily use, it's also very modular!
 //
 
-// [To-Do]
-// 1. Add start times set & get functions?
-// 2. Add remaining times set & get functions?
-//
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -225,7 +220,7 @@ namespace TimeSystem
             _hoursRemaining = _startHours;
             _daysRemaining = _startDays;
 
-            if (_startSeconds <= 0 && _startMinutes <= 0 && _startHours <= 0 && _startDays <= 0)
+            if (_isLooping == true && _startSeconds <= 0 && _startMinutes <= 0 && _startHours <= 0 && _startDays <= 0)
             {
                 Debug.LogWarning("Starting Time Variables are all 0, IsLooping is switched to false!");
                 _isLooping = false;
@@ -275,7 +270,7 @@ namespace TimeSystem
         // Tries to restart this time event.
         private void TryToRestartTimeEvent()
         {
-            if (_startSeconds <= 0 && _startMinutes <= 0 && _startHours <= 0 && _startDays <= 0)
+            if (_isLooping == true && _startSeconds <= 0 && _startMinutes <= 0 && _startHours <= 0 && _startDays <= 0)
             {
                 Debug.LogWarning("Starting Time Variables are all 0, loopEvent is switched to false!");
                 _isLooping = false;
@@ -342,5 +337,6 @@ namespace TimeSystem
         public bool GetIsActiveStatus() => _isActive;
 
         #endregion
+
     }
 }

@@ -11,7 +11,7 @@ namespace TimeSystem
     [RequireComponent(typeof(SC_TimeEvent))]
     public class SC_TimeTestResult : MonoBehaviour
     {
-        [SerializeField] private string _MyConsoleMessage = "Yippi!";
+        [SerializeField] private string _myConsoleMessage = "Yippi!";
 
 
         // ----------------- Functions -----------------
@@ -45,8 +45,9 @@ namespace TimeSystem
         #region Time Event Subscription Function
 
         // Time event result logic.
-        private void ItsAboutTime() => Debug.Log(_MyConsoleMessage + " (" + this.name + ")");
+        private void ItsAboutTime() => Debug.Log(_myConsoleMessage + " (" + this.name + ")");
 
         #endregion
+    
     }
 }

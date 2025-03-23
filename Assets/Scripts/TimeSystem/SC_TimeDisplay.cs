@@ -12,7 +12,13 @@ namespace TimeSystem
     [RequireComponent(typeof(TextMeshProUGUI))]
     public class SC_TimeDisplay : MonoBehaviour
     {
+        // Changeable
+        [SerializeField] private SC_TimeFormatTypeEnum _timeDisplayFormat;
+
+        // My manager
         private SC_TimeManager _manager;
+
+        // My text
         private TextMeshProUGUI _timeText;
 
 
@@ -35,6 +41,7 @@ namespace TimeSystem
             if (TryGetComponent<TextMeshProUGUI>(out var tmpComponent))
             {
                 _timeText = GetComponent<TextMeshProUGUI>();
+                _timeText.enabled = false;
             }
             else
             {
@@ -91,9 +98,21 @@ namespace TimeSystem
         {
             SC_TimeManager manager = SC_TimeManager.Instance;
 
-            _timeText.text = manager.GetTimeToString(manager.GetCurrentTime);
+            switch (_timeDisplayFormat)
+            {
+                case SC_TimeFormatTypeEnum.HMS:
+                    _timeText.text = manager.GetTimeToStringHMS(manager.GetCurrentTime);
+                    break;
+                case SC_TimeFormatTypeEnum.HM:
+                    _timeText.text = manager.GetTimeToStringHM(manager.GetCurrentTime);
+                    break;
+            }
+
+            if (_timeText.enabled == false)
+                _timeText.enabled = true;
         }
 
         #endregion
+
     }
 }

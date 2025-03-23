@@ -42,6 +42,12 @@ namespace TimeSystem
         private float _nextHourMark = 0f;
         private float _nextDayMark = 0f;
 
+        // Timed-Events
+        private bool _skippedFirstSecondMark = false;
+        private bool _skippedFirstMinuteMark = false;
+        private bool _skippedFirstHourMark = false;
+        private bool _skippedFirstDayMark = false;
+
         // Actions
         public Action OnSecondPassed;
         public Action OnMinutePassed;
@@ -63,13 +69,13 @@ namespace TimeSystem
         private void DebuggingChecks()
         {
             if (_consoleShowInGameTime)
-                Debug.Log("In-Game Time is: " + GetTimeToString(_currentInGameTime));
+                Debug.Log("In-Game Time is: " + GetTimeToStringHMS(_currentInGameTime));
 
             if (_consoleShowGameSessionTime)
-                Debug.Log("Game Session Time is: " + GetTimeToString(Time.realtimeSinceStartup));
+                Debug.Log("Game Session Time is: " + GetTimeToStringHMS(Time.realtimeSinceStartup));
 
             if (_consoleShowLevelSessionTime)
-                Debug.Log("Level Session Time is: " + GetTimeToString(Time.timeSinceLevelLoad));
+                Debug.Log("Level Session Time is: " + GetTimeToStringHMS(Time.timeSinceLevelLoad));
         }
 
         #endregion
@@ -125,8 +131,14 @@ namespace TimeSystem
         {
             if (_currentInGameTime >= _nextSecondMark)
             {
-                if (OnSecondPassed != null && _nextSecondMark > 0)
+                if (OnSecondPassed != null)
                 {
+                    if (_skippedFirstSecondMark == false)
+                    {
+                        _skippedFirstSecondMark = true;
+                        return;
+                    }
+
                     if (_consoleShowActions)
                         Debug.Log($"[DEBUG] Triggered: SECOND | Action: {OnSecondPassed.Method.Name}");
                     OnSecondPassed.Invoke();
@@ -138,6 +150,12 @@ namespace TimeSystem
             {
                 if (OnMinutePassed != null && _nextMinuteMark > 0)
                 {
+                    if (_skippedFirstMinuteMark == false)
+                    {
+                        _skippedFirstMinuteMark = true;
+                        return;
+                    }
+
                     if (_consoleShowActions)
                         Debug.Log($"[DEBUG] Triggered: MINUTE | Action: {OnMinutePassed.Method.Name}");
                     OnMinutePassed.Invoke();
@@ -149,6 +167,12 @@ namespace TimeSystem
             {
                 if (OnHourPassed != null && _nextHourMark > 0)
                 {
+                    if (_skippedFirstHourMark == false)
+                    {
+                        _skippedFirstHourMark = true;
+                        return;
+                    }
+
                     if (_consoleShowActions)
                         Debug.Log($"[DEBUG] Triggered: HOUR | Action: {OnHourPassed.Method.Name}");
                     OnHourPassed.Invoke();
@@ -160,6 +184,12 @@ namespace TimeSystem
             {
                 if (OnDayPassed != null && _nextDayMark > 0)
                 {
+                    if (_skippedFirstDayMark == false)
+                    {
+                        _skippedFirstDayMark = true;
+                        return;
+                    }
+
                     if (_consoleShowActions)
                         Debug.Log($"[DEBUG] Triggered: DAY | Action: {OnDayPassed.Method.Name}");
                     OnDayPassed.Invoke();
@@ -211,8 +241,23 @@ namespace TimeSystem
 
         #region Public Set Functions
 
+        // Change if you want to run time.
+        public void RunningIngameTime(bool direction) => _timeIsRunning = direction;
+
         // Changes the current time to a given time.
-        public void ChangeInGameTime(float newTime) => _currentInGameTime = newTime;
+        public void ChangeInGameTime(float newTime)
+        {
+            ChamgeCurrentInGameTime(newTime);
+            ChangeCurrentSecondMark(newTime);
+            ChangeCurrentMinuteMark(newTime);
+            ChangeCurrentHourMark(newTime);
+            ChangeCurrentDayMark(newTime);
+
+            _skippedFirstSecondMark = false;
+            _skippedFirstMinuteMark = false;
+            _skippedFirstHourMark = false;
+            _skippedFirstDayMark = false;
+        }
 
         // Completely resets the in game time.
         public void ResetInGameTime()
@@ -234,14 +279,23 @@ namespace TimeSystem
         public float GetMinutesPerHourRule => MINUTES_PER_HOUR; 
         public float GetHoursPerDayRule => HOURS_PER_DAY; 
 
-        // Get the current time in form of a string.
-        public string GetTimeToString(float time)
+        // Get the current time in form of a HMS string.
+        public string GetTimeToStringHMS(float time)
         {
             string hours = CalculateHours(time).ToString("00");
             string minutes = CalculateMinutes(time).ToString("00");
             string seconds = CalculateSeconds(time).ToString("00");
 
             return "[" + hours + ":" + minutes + ":" + seconds + "]";
+        }
+
+        // Get the current time in form of a HM string.
+        public string GetTimeToStringHM(float time)
+        {
+            string hours = CalculateHours(time).ToString("00");
+            string minutes = CalculateMinutes(time).ToString("00");
+
+            return "[" + hours + ":" + minutes + "]";
         }
 
         #endregion
