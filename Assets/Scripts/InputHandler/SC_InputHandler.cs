@@ -25,6 +25,8 @@ public class SC_InputHandler : MonoBehaviour
 
     [Header("Required References")]
     [SerializeField, Tooltip("The Reference to the Action name")]
+    private string _mousePointerName = "MousePointer";
+    [SerializeField, Tooltip("The Reference to the Action name")]
     private string _leftMouseClickName = "LeftMouseClick";
     [SerializeField, Tooltip("The Reference to the Action name")]
     private string _escapeKeyName = "EscapeKey";
@@ -33,11 +35,12 @@ public class SC_InputHandler : MonoBehaviour
     public static SC_InputHandler Instance { get; private set; }
 
     // Inputs
+    private InputAction _mousePointerInput;
     private InputAction _leftMouseClickInput;
     private InputAction _escapeKeyInput;
 
     // Actions
-    public Action OnLeftMouseClick;
+    public Action<Vector2> OnLeftMouseClick;
     public Action OnEscapeKey;
 
 
@@ -75,6 +78,7 @@ public class SC_InputHandler : MonoBehaviour
     {
         InputActionMap actionMap = _playerControls.FindActionMap(_actionMapName);
         _leftMouseClickInput = actionMap.FindAction(_leftMouseClickName);
+        _mousePointerInput = actionMap.FindAction(_mousePointerName);
         _escapeKeyInput = actionMap.FindAction(_escapeKeyName);
         // Expand Assignments..
     }
@@ -82,7 +86,11 @@ public class SC_InputHandler : MonoBehaviour
     // Register the actions like a event.
     private void RegisterInputActions()
     {
-        _leftMouseClickInput.started += context => OnLeftMouseClick?.Invoke();
+        _leftMouseClickInput.started += context =>
+        {
+            Vector2 mouseScreenPosition = _mousePointerInput.ReadValue<Vector2>();
+            OnLeftMouseClick?.Invoke(mouseScreenPosition);
+        };
         _escapeKeyInput.started += context => OnEscapeKey?.Invoke();
         // Expand Invokes..
     }
@@ -102,6 +110,7 @@ public class SC_InputHandler : MonoBehaviour
     // Enables all actions.
     private void EnableAllActions()
     {
+        _mousePointerInput.Enable();
         _leftMouseClickInput.Enable();
         _escapeKeyInput.Enable();
         // Expand Inputs..
@@ -122,6 +131,7 @@ public class SC_InputHandler : MonoBehaviour
     // Disables all actions.
     private void DisableAllActions()
     {
+        _mousePointerInput.Disable();
         _leftMouseClickInput.Disable();
         _escapeKeyInput.Disable();
         // Expand Inputs..

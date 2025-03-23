@@ -19,7 +19,7 @@ public class SC_CameraRaycaster : MonoBehaviour
     public Action<GameObject> OnHitViewTrigger;
 
     // Input handler
-    private SC_TemporaryMouseInputManager _inputHandler;
+    private SC_InputHandler _inputHandler;
 
     // Event handler
     private SC_TemporaryInterfaceEventHandler _interfaceEventHandler;
@@ -45,13 +45,13 @@ public class SC_CameraRaycaster : MonoBehaviour
     // Tries to get the input handler singleton.
     private void TryToAssignInputHandler()
     {
-        if (SC_TemporaryMouseInputManager.Instance == null)
+        if (SC_InputHandler.Instance == null)
         {
             Debug.LogWarning("InputHandler instance is missing!");
             return;
         }
 
-        _inputHandler = SC_TemporaryMouseInputManager.Instance;
+        _inputHandler = SC_InputHandler.Instance;
     }
 
     // Tries to get the interface event handler instance.

@@ -63,7 +63,7 @@ public class SC_InputTester : MonoBehaviour
     #region Subscription Functions
 
     // The input result.
-    private void InputResult()
+    private void InputResult(Vector2 position)
     {
         Debug.Log(_inputText + " (" + this.gameObject.name + ")");
 
