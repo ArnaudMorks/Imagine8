@@ -376,7 +376,7 @@ RectTransform:
   m_GameObject: {fileID: 118476717}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 92.257454}
-  m_LocalScale: {x: 0.107985884, y: 0.107985884, z: 0.107985884}
+  m_LocalScale: {x: 0.04690043, y: 0.04690043, z: 0.04690043}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1503842514}
@@ -385,7 +385,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17.549927, y: -21.040869}
+  m_AnchoredPosition: {x: 73.04091, y: -21.040869}
   m_SizeDelta: {x: 632.6841, y: 940.214}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &118476719
@@ -401,7 +401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 0.97647065, b: 0.8705883, a: 0.8784314}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -833,7 +833,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -453.31, y: 229.74}
+  m_AnchoredPosition: {x: -453.31, y: 229.73999}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &554982116
@@ -1720,7 +1720,7 @@ RectTransform:
   m_GameObject: {fileID: 1503842513}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalScale: {x: 1.38128, y: 1.38128, z: 1.38128}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2014042096}
@@ -1728,7 +1728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 241.325, y: 396.655}
+  m_AnchoredPosition: {x: -261.77814, y: 414.623}
   m_SizeDelta: {x: 51.788, y: 51.612}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1503842515
@@ -1752,9 +1752,9 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_NormalColor: {r: 0.8235294, g: 0.80784315, b: 0.73333335, a: 1}
+    m_HighlightedColor: {r: 1, g: 0.9764706, b: 0.87058824, a: 1}
+    m_PressedColor: {r: 0.54901963, g: 0.53333336, b: 0.47843137, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
     m_ColorMultiplier: 1
@@ -1800,7 +1800,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.7607844, g: 0.74509805, b: 0.6784314, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2189,7 +2189,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: SampleScene
+          m_StringArgument: MainScene
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1984454525
