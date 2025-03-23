@@ -9,6 +9,7 @@ public class SC_PackageCounter : MonoBehaviour
 
     private SC_PackageSpawner _spawner;
 
+
     private void Awake()
     {
         _spawner = FindAnyObjectByType<SC_PackageSpawner>();
@@ -20,7 +21,7 @@ public class SC_PackageCounter : MonoBehaviour
     private void UpdateCounter(GameObject package)
     {
         _packageAmount = _spawner.packageAmount - 1;
-        var deactivateAmount = _indecators.Count / _packageAmount;
+        int deactivateAmount = _indecators.Count / _packageAmount;
 
         DeActivateObjects(_indecators, deactivateAmount);
     }
@@ -48,9 +49,9 @@ public class SC_PackageCounter : MonoBehaviour
 
             if (item.activeSelf)
             {
-                Debug.Log(item);
                 item.SetActive(false);
                 deactivatedAmount++;
+
                 continue;
             }
         }

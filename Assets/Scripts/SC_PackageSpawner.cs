@@ -11,6 +11,7 @@ public class SC_PackageSpawner : MonoBehaviour
     private int _currentPackage = 0;
     private GameObject _lastPackage;
 
+    public static SC_PackageSpawner Instance { get; private set; }
     public int packageAmount { get; private set; }
 
     public Action OnSpawnedPackage;
