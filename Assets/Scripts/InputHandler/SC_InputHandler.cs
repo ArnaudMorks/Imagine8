@@ -30,7 +30,7 @@ public class SC_InputHandler : MonoBehaviour
     private string _escapeKeyName = "EscapeKey";
 
     // Singleton reference
-    public static SC_InputHandler Instance { get; private set; } // Uppercase?
+    public static SC_InputHandler Instance { get; private set; }
 
     // Inputs
     private InputAction _leftMouseClickInput;

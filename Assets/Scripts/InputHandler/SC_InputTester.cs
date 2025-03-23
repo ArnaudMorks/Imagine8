@@ -25,7 +25,7 @@ public class SC_InputTester : MonoBehaviour
     // On enable changes.
     private void OnEnable()
     {
-        TryToGetTimeManager();
+        TryToGetInputHandler();
 
         if (_inputHandler != null)
             _inputHandler.OnLeftMouseClick += InputResult; // Rename this for testing other actions!
@@ -34,7 +34,7 @@ public class SC_InputTester : MonoBehaviour
     }
 
     // Tries to get the input handler singleton.
-    private void TryToGetTimeManager()
+    private void TryToGetInputHandler()
     {
         if (SC_InputHandler.Instance == null)
         {
@@ -52,8 +52,6 @@ public class SC_InputTester : MonoBehaviour
     // On enable changes.
     private void OnDisable()
     {
-        TryToGetTimeManager();
-
         if (_inputHandler != null) // Bug Potential, be careful!
             _inputHandler.OnLeftMouseClick -= InputResult; // Rename this for testing other actions!
 
