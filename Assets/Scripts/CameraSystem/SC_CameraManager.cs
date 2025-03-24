@@ -14,6 +14,7 @@ namespace CameraSystem
         // Sub-systems
         private SC_CameraRaycaster _cameraRaycaster;
         private SC_CameraViewerAddon _cameraViewerAddon;
+        private SC_CameraItemInteractAddon _cameraItemInteractAddon;
 
         // Singleton reference
         public static SC_CameraManager Instance { get; private set; }
@@ -88,6 +89,28 @@ namespace CameraSystem
                 _cameraViewerAddon = null;
             else
                 Debug.LogWarning("I have a different _cameraViewerAddon Assigned! Duplicates?");
+        }
+
+        #endregion
+
+        #region CameraItemInteractAddon Functions
+
+        // Allows the camera item interact addon to assign himself, if active.
+        public void AssignSceneCameraItemInteractAddon(SC_CameraItemInteractAddon camItemInteractAddon)
+        {
+            if (_cameraItemInteractAddon == null)
+                _cameraItemInteractAddon = camItemInteractAddon;
+            else
+                Debug.LogWarning("Already have a _cameraItemInteractAddon Assigned! Duplicates?");
+        }
+
+        // Allows the camera item interact addon to unassign himself, if the same.
+        public void UnAssignSceneCameraItemInteractAddon(SC_CameraItemInteractAddon camItemInteractAddon)
+        {
+            if (_cameraItemInteractAddon == camItemInteractAddon)
+                _cameraItemInteractAddon = null;
+            else
+                Debug.LogWarning("I have a different _cameraItemInteractAddon Assigned! Duplicates?");
         }
 
         #endregion

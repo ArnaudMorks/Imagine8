@@ -14,10 +14,13 @@ namespace CameraSystem
     {
         // Changeable
         [SerializeField] private LayerMask _viewTriggersLayerMask;
+        [SerializeField] private LayerMask _itemTriggersLayerMask;
         [SerializeField] private float _rayMaxDistance = 100f;
         [SerializeField] private bool _pointerIsOnInterface;
-
+        
+        // Actions
         public Action<GameObject> OnHitViewTrigger;
+        public Action<GameObject> OnHitItemTrigger;
 
         // Input handler
         private SC_InputHandler _inputHandler;
@@ -105,6 +108,15 @@ namespace CameraSystem
                 return;
 
             Ray ray = Camera.main.ScreenPointToRay(position);
+            if (Physics.Raycast(ray, out RaycastHit hitTwo, _rayMaxDistance, _itemTriggersLayerMask))
+            {
+                if (hitTwo.collider.isTrigger)
+                {
+                    OnHitItemTrigger?.Invoke(hitTwo.rigidbody.gameObject);
+                    return; // Don't go further if hit item!
+                }
+            }
+
             if (Physics.Raycast(ray, out RaycastHit hit, _rayMaxDistance, _viewTriggersLayerMask))
             {
                 if (hit.collider.isTrigger)

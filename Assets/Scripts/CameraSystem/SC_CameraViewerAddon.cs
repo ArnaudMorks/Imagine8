@@ -58,6 +58,7 @@ namespace CameraSystem
         // Changes that happen on disable.
         private void OnDisable()
         {
+            UnSubscribeOnHitViewTrigger();
             UnAssignFromCameraManager();
 
             // Expand..
