@@ -1,0 +1,54 @@
+{
+    "name": "TemporaryInputActions",
+    "maps": [
+        {
+            "name": "Player",
+            "id": "e17e8b7e-7543-491f-bfa0-2a2fd1294daa",
+            "actions": [
+                {
+                    "name": "MousePointer",
+                    "type": "PassThrough",
+                    "id": "773f3e69-6fa9-4fe3-9e35-f7e6a065ae87",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "LeftMouseClick",
+                    "type": "Button",
+                    "id": "643c97a0-bd37-4f4c-b3b6-b16448bebe4e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "443b45df-afc8-424c-bb04-aa212259c204",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePointer",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e36c50ef-0d47-4861-90c5-84fd4017130d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftMouseClick",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}

@@ -15,6 +15,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "MousePointer",
+                    "type": "PassThrough",
+                    "id": "486bc206-b95e-4ba2-ab66-73c0ceeb9977",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "EscapeKey",
                     "type": "Button",
                     "id": "04f8d667-e49c-4b47-8915-85763294c366",
@@ -44,6 +53,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "EscapeKey",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "50d609ac-80fa-485a-a4dc-1fb2da4f2f20",
+                    "path": "<Mouse>/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MousePointer",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
