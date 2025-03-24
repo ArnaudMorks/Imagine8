@@ -13,18 +13,10 @@ public class SC_PackageCounter : MonoBehaviour
     private void Awake()
     {
         _spawner = FindAnyObjectByType<SC_PackageSpawner>();
-        _spawner.OnDeSpawnedPackage += UpdateCounter;
-
-        _indecators = GetChildren();
+        _spawner.OnDeSpawnedPackage += UpdateVisualCounter;
     }
 
-    private void UpdateCounter(GameObject package)
-    {
-        _packageAmount = _spawner.packageAmount - 1;
-        int deactivateAmount = _indecators.Count / _packageAmount;
-
-        DeActivateObjects(_indecators, deactivateAmount);
-    }
+    private void Start() => _indecators = GetChildren();
 
     private List<GameObject> GetChildren()
     {
@@ -38,6 +30,14 @@ public class SC_PackageCounter : MonoBehaviour
         }
 
         return children;
+    }
+
+    private void UpdateVisualCounter(GameObject package)
+    {
+        _packageAmount = _spawner.packageAmount - 1;
+        int deactivateAmount = _indecators.Count / _packageAmount;
+
+        DeActivateObjects(_indecators, deactivateAmount);
     }
 
     private void DeActivateObjects(List<GameObject> objectList, int amount)
