@@ -3,9 +3,17 @@ using UnityEngine;
 public class SC_DestinationLever : MonoBehaviour
 {
     [SerializeField] private PackageDestination _packageDestination;
+
+    private SC_TemporaryItemInteractReceiver _itemInteractReceiver;
     private SC_SendingManager _sendingManager;
 
-    private void Awake() => _sendingManager = FindFirstObjectByType<SC_SendingManager>();
+    private void Awake()
+    {
+        _sendingManager = FindFirstObjectByType<SC_SendingManager>();
+
+        TryAssignItemInteractReceiver();
+        _itemInteractReceiver.OnReceivedHit += TrySetDestination;
+    }
 
     /// <summary>
     /// Tries to set the package destination if there is a package in the Scene.
@@ -15,5 +23,13 @@ public class SC_DestinationLever : MonoBehaviour
         if (_sendingManager == null) return;
 
         _sendingManager.TrySendPackage(_packageDestination);
+    }
+
+    private void TryAssignItemInteractReceiver()
+    {
+        if (this.TryGetComponent(out SC_TemporaryItemInteractReceiver itemInteractReceiver))
+            _itemInteractReceiver = itemInteractReceiver;
+        else
+            Debug.LogWarning("Unable to get my _itemInteractReceiver component!");
     }
 }

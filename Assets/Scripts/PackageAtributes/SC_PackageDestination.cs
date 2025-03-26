@@ -1,5 +1,6 @@
 public enum PackageDestination
 {
-    International = 0,
-    Local = 1
+    NATIONAL_SHIPPING = 0,
+    INTERNATIONAL_SHIPPING = 1,
+    ILLEGAL_GOODS = 2
 }
