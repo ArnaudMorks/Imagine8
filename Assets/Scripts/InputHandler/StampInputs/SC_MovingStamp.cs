@@ -9,16 +9,6 @@ public class SC_MovingStamp : MonoBehaviour
 		get { return g_stampState; }
 		set { g_stampState = value; }
 	}
-	//[SerializeField] private SC_StampColorEnum g_stampColorEnum;
-	/*public SC_StampColorEnum MovingStampColorEnum
-	{
-		get { return g_stampColorEnum; }
-		set { g_stampColorEnum = value; }
-	}*/
-
-	[SerializeField] private MeshRenderer g_bottomStampMeshRenderer;
-	[SerializeField] private Material g_currentVisualColorStamp;
-	[SerializeField] private Material[] g_allStampColors;
 
 	[SerializeField] private LayerMask g_itemTriggersLayerMask;
 	[SerializeField] private float g_rayMaxDistance;
@@ -55,12 +45,5 @@ public class SC_MovingStamp : MonoBehaviour
 
 	}
 
-
-
-	public void SetVisualColorStamp(SC_StampColorEnum stampColorEnum)
-	{
-		g_currentVisualColorStamp = g_allStampColors[((int)stampColorEnum)];
-		g_bottomStampMeshRenderer.material = g_currentVisualColorStamp;
-	}
 
 }

@@ -30617,18 +30617,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   g_stampState: 1
-  g_bottomStampMeshRenderer: {fileID: 3994876571572117095}
-  g_currentVisualColorStamp: {fileID: 2100000, guid: 74ca081706d5af948b5140daad734af8, type: 2}
-  g_allStampColors:
-  - {fileID: 2100000, guid: 74ca081706d5af948b5140daad734af8, type: 2}
-  - {fileID: 2100000, guid: 87f58a75dc6245c4b904609cc6c97309, type: 2}
-  - {fileID: 2100000, guid: f55897089638af04fa95c38423271eba, type: 2}
-  - {fileID: 2100000, guid: 6dc1d4fb860ca0a4e8e8df7fd9d1a37e, type: 2}
-  - {fileID: 2100000, guid: b22595207d621ae439296377c0c1ce38, type: 2}
-  - {fileID: 2100000, guid: 7e2c67d0460df714495bf213df1c728a, type: 2}
-  - {fileID: 2100000, guid: c4a5a48a11256a64ca178bfd32a0955d, type: 2}
-  - {fileID: 2100000, guid: 9ae8d70a19445f544aef18403a75fa1c, type: 2}
-  - {fileID: 2100000, guid: 8ad927b972a7a9044b06ab8caf326643, type: 2}
   g_itemTriggersLayerMask:
     serializedVersion: 2
     m_Bits: 128
@@ -55567,6 +55555,7 @@ MonoBehaviour:
   g_stampState: 1
   g_StampColorEnum: 0
   g_movingStampScript: {fileID: 1149340240}
+  g_visualStampScript: {fileID: 3459831765992251364}
   g_gettingColorTime: 2
 --- !u!1001 &2066931622
 PrefabInstance:
@@ -57406,6 +57395,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1060901691502785766}
+  - component: {fileID: 3459831765992251364}
   m_Layer: 0
   m_Name: StampMoveFullBody
   m_TagString: Untagged
@@ -57413,6 +57403,30 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &3459831765992251364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3459831765992251363}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 629ffb1a1ebe0b24fb6a32e92bf1ed23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  g_bottomStampMeshRenderer: {fileID: 3487834669150772544}
+  g_currentStampColor: {fileID: 2100000, guid: 74ca081706d5af948b5140daad734af8, type: 2}
+  g_allStampColors:
+  - {fileID: 2100000, guid: 74ca081706d5af948b5140daad734af8, type: 2}
+  - {fileID: 2100000, guid: 87f58a75dc6245c4b904609cc6c97309, type: 2}
+  - {fileID: 2100000, guid: f55897089638af04fa95c38423271eba, type: 2}
+  - {fileID: 2100000, guid: 6dc1d4fb860ca0a4e8e8df7fd9d1a37e, type: 2}
+  - {fileID: 2100000, guid: b22595207d621ae439296377c0c1ce38, type: 2}
+  - {fileID: 2100000, guid: 7e2c67d0460df714495bf213df1c728a, type: 2}
+  - {fileID: 2100000, guid: c4a5a48a11256a64ca178bfd32a0955d, type: 2}
+  - {fileID: 2100000, guid: 9ae8d70a19445f544aef18403a75fa1c, type: 2}
+  - {fileID: 2100000, guid: 8ad927b972a7a9044b06ab8caf326643, type: 2}
 --- !u!1 &3487834669150772544
 GameObject:
   m_ObjectHideFlags: 0
