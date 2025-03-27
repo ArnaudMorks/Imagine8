@@ -4,6 +4,12 @@ using UnityEngine.InputSystem;
 public class SC_MovingStamp : MonoBehaviour
 {
 	[SerializeField] private SC_StampStateEnum g_stampState;
+	public SC_StampStateEnum StampState
+	{
+		get { return g_stampState; }
+		set { g_stampState = value; }
+	}
+
 	[SerializeField] private LayerMask g_itemTriggersLayerMask;
 	[SerializeField] private float g_rayMaxDistance;
 	[SerializeField] private float g_mousePosition;
