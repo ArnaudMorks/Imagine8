@@ -14,6 +14,8 @@ public class SC_InteractInkColor : MonoBehaviour
 	// My item interact receiver
 	private SC_TemporaryItemInteractReceiver g_itemInteractReceiver;
 
+	[SerializeField] private SC_StampColorEnum g_thisStampColor;
+
 	[SerializeField] private SC_StampManager g_stampManagerScript;
 
 
@@ -40,10 +42,6 @@ public class SC_InteractInkColor : MonoBehaviour
 		Debug.LogWarning("Unable to get my _itemInteractReceiver component!");
 	}
 
-	private void SetStampColor()
-	{
-
-	}
 
 	#endregion
 
@@ -69,6 +67,13 @@ public class SC_InteractInkColor : MonoBehaviour
 	private void ReceivedResult()
 	{
 		Debug.Log("I received the signal all the way down here!" + this.gameObject.name);
+		SetStampColorInManager();
+	}
+
+	private void SetStampColorInManager()
+	{
+		print("Setting ink color in StampManager");
+		g_stampManagerScript.TryGettingSpecificColor(g_thisStampColor);
 	}
 
 	#endregion
