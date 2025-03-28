@@ -16,7 +16,7 @@ public class SC_InteractInkColor : MonoBehaviour
 	// My item interact receiver
 	private SC_TemporaryItemInteractReceiver g_itemInteractReceiver;
 
-	[SerializeField] private SC_StampColorEnum g_thisStampColor;
+	[SerializeField] private PackageStampColor g_thisStampColor;
 
 	[SerializeField] private SC_StampManager g_stampManagerScript;
 

@@ -10,34 +10,33 @@ public class SC_VisualStamp : MonoBehaviour
 
 	[SerializeField] private Material g_currentStampColor;
 
-	//Assumes the "g_allStampColors" is the same order as "SC_STampStateEnum"
+	//Assumes the "g_allStampColors" is the same order as "PackageStampColor"
+	//"8" = grey; DOES NOT EXIST IN ENUM
 	[SerializeField] private Material[] g_allStampColors;
 
 
 	//MAKE BETTER SYSTEM LATER
-	private Sprite SymbolToImageSetter(SC_StampSymbolEnum symbolStampEnum)
+	private Sprite SymbolToImageSetter(PackageStampIcon iconStampEnum)
 	{
 		Sprite currentSprite;
 		currentSprite = g_allStampIconSprites[0];	//default so it always returns a value
 
-		switch (symbolStampEnum)
+		switch (iconStampEnum)
 		{
-			case SC_StampSymbolEnum.NO_SYMBOL:
-				break;
-			case SC_StampSymbolEnum.SQUARE:
+			case PackageStampIcon.SQUARE:
 				currentSprite = g_allStampIconSprites[0];
 				break;
-			case SC_StampSymbolEnum.STAR:
+			case PackageStampIcon.STAR:
 				currentSprite = g_allStampIconSprites[1];
 				break;
-			case SC_StampSymbolEnum.CIRCLE:
+			case PackageStampIcon.CIRCLE:
 				currentSprite = g_allStampIconSprites[2];
 				break;
-			case SC_StampSymbolEnum.TRIANGLE:
+			case PackageStampIcon.TRIANGLE:
 				break;
-			case SC_StampSymbolEnum.ASTERRISK:
+			case PackageStampIcon.ASTERRISK:
 				break;
-			case SC_StampSymbolEnum.DIAMOND:
+			case PackageStampIcon.DIAMOND:
 				currentSprite = g_allStampIconSprites[3];
 				break;
 			default:
@@ -49,7 +48,7 @@ public class SC_VisualStamp : MonoBehaviour
 	}
 
 
-	public void SetVisualColorStamp(SC_StampColorEnum stampColorEnum)
+	public void SetVisualColorStamp(PackageStampColor stampColorEnum)
 	{
 		g_currentStampColor = g_allStampColors[((int)stampColorEnum)];
 
@@ -59,27 +58,29 @@ public class SC_VisualStamp : MonoBehaviour
 			Debug.LogError("Couldn't find MeshRenderer in InteractStamp");
 	}
 
-	public void EnableStampVisual(SC_StampSymbolEnum symbolStampEnum)
+	public void EnableStampVisual(PackageStampIcon iconStampEnum)
 	{
 		//take original; FOR LATER
 		SpriteRenderer spriteRenderer = g_spriteStampObject.GetComponent<SpriteRenderer>();
 		spriteRenderer.enabled = true;
 
 		//set current stamp sprite
-		spriteRenderer.sprite = SymbolToImageSetter(symbolStampEnum);
+		spriteRenderer.sprite = SymbolToImageSetter(iconStampEnum);
 
 		for (int i = 0; i < g_interactStampObjectParts.Length; i++)
 		{
 			MeshRenderer meshRenderer = g_interactStampObjectParts[i].GetComponent<MeshRenderer>();
 			meshRenderer.enabled = true;
 		}
+
+		//resets to grey (NO COLOR)
+		g_currentStampColor = g_allStampColors[8];
+		g_interactStampObjectParts[2].GetComponent<MeshRenderer>().material = g_currentStampColor;
 	}
 
 	public void DisableStampVisual()
 	{
 		//put original back; FOR LATER
-		SetVisualColorStamp(SC_StampColorEnum.NO_COLOR);	//resets color to "NO_COLOR"
-
 		SpriteRenderer spriteRenderer = g_spriteStampObject.GetComponent<SpriteRenderer>();
 		spriteRenderer.enabled = false;
 

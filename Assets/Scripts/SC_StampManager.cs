@@ -7,8 +7,8 @@ public class SC_StampManager : MonoBehaviour
 	[SerializeField] private SC_InteractStampPickup[] g_interactStampPickups;
 
 	[SerializeField] private SC_StampStateEnum g_stampState;
-	[SerializeField] private SC_StampSymbolEnum g_symbolStampState;
-	[SerializeField] private SC_StampColorEnum g_colorStampEnum;
+	[SerializeField] private PackageStampIcon g_iconPackageStamp;
+	[SerializeField] private PackageStampColor g_colorStampEnum;
 
 	[SerializeField] private SC_MovingStamp g_movingStampScript;
 	[SerializeField] private SC_VisualStamp g_visualStampScript;
@@ -27,21 +27,21 @@ public class SC_StampManager : MonoBehaviour
 		g_movingStampScript.MovingStampState = stampState;
 	}
 
-	public void TryGettingSymbol(SC_StampSymbolEnum symbolStampState)
+	public void TryGettingSymbol(PackageStampIcon iconStampState)
 	{
 		if (g_stampState == SC_StampStateEnum.NOT_HOLDING)
 		{
 			//Disable visual of grabbed stamp LATER
-			g_symbolStampState = symbolStampState;
+			g_iconPackageStamp = iconStampState;
 			g_stampState = SC_StampStateEnum.OVER_INK_MOVE;
 
 			SetMoveStampState(g_stampState);
-			g_visualStampScript.EnableStampVisual(symbolStampState);
+			g_visualStampScript.EnableStampVisual(iconStampState);
 		}
 	}
 
 	//triggers when clicking on an ink color while holding the stamp over said color
-	public void TryGettingSpecificColor(SC_StampColorEnum stampColorEnum)
+	public void TryGettingSpecificColor(PackageStampColor stampColorEnum)
 	{
 		if (g_stampState == SC_StampStateEnum.OVER_INK_MOVE)
 		{
@@ -60,7 +60,7 @@ public class SC_StampManager : MonoBehaviour
 		if (g_stampState == SC_StampStateEnum.HAS_INK)
 		{
 			//stamp on package FOR LATER
-			print("Put a " + g_colorStampEnum + " " + g_symbolStampState + " on the package.");
+			print("Put a " + g_colorStampEnum + " " + g_iconPackageStamp + " on the package.");
 			g_stampState = SC_StampStateEnum.NOT_HOLDING;
 
 			SetMoveStampState(g_stampState);	//Maybe unnecessary everywhere

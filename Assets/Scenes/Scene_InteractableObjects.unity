@@ -4671,7 +4671,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d57990b44d883428319c2193c84a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampSymbolState: 2
+  g_thisStampIconState: 1
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1001 &154691640
 PrefabInstance:
@@ -11275,7 +11275,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d57990b44d883428319c2193c84a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampSymbolState: 3
+  g_thisStampIconState: 2
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1001 &435493008
 PrefabInstance:
@@ -45984,7 +45984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d57990b44d883428319c2193c84a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampSymbolState: 1
+  g_thisStampIconState: 0
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1001 &1740520705
 PrefabInstance:
@@ -47794,7 +47794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d57990b44d883428319c2193c84a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampSymbolState: 6
+  g_thisStampIconState: 5
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1001 &1791143815
 PrefabInstance:
@@ -55686,7 +55686,7 @@ MonoBehaviour:
   - {fileID: 431233960}
   - {fileID: 1790582694}
   g_stampState: 0
-  g_symbolStampState: 0
+  g_iconPackageStamp: 0
   g_colorStampEnum: 0
   g_movingStampScript: {fileID: 1149340240}
   g_visualStampScript: {fileID: 3459831765992251364}
@@ -57569,7 +57569,6 @@ MonoBehaviour:
   - {fileID: 3487834669150772544}
   g_currentStampColor: {fileID: 2100000, guid: 74ca081706d5af948b5140daad734af8, type: 2}
   g_allStampColors:
-  - {fileID: 2100000, guid: 74ca081706d5af948b5140daad734af8, type: 2}
   - {fileID: 2100000, guid: 87f58a75dc6245c4b904609cc6c97309, type: 2}
   - {fileID: 2100000, guid: f55897089638af04fa95c38423271eba, type: 2}
   - {fileID: 2100000, guid: 6dc1d4fb860ca0a4e8e8df7fd9d1a37e, type: 2}
@@ -57578,6 +57577,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c4a5a48a11256a64ca178bfd32a0955d, type: 2}
   - {fileID: 2100000, guid: 9ae8d70a19445f544aef18403a75fa1c, type: 2}
   - {fileID: 2100000, guid: 8ad927b972a7a9044b06ab8caf326643, type: 2}
+  - {fileID: 2100000, guid: 74ca081706d5af948b5140daad734af8, type: 2}
 --- !u!1 &3487834669150772544
 GameObject:
   m_ObjectHideFlags: 0
@@ -57905,7 +57905,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 2
+  g_thisStampColor: 1
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1 &5265493652784038724
 GameObject:
@@ -57978,7 +57978,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 5
+  g_thisStampColor: 4
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1 &5335714378342539345
 GameObject:
@@ -58217,7 +58217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 7
+  g_thisStampColor: 6
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!4 &6491928714155182154
 Transform:
@@ -58306,7 +58306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 1
+  g_thisStampColor: 0
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!65 &6851489967888542440
 BoxCollider:
@@ -58380,7 +58380,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 8
+  g_thisStampColor: 7
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!114 &6922989289450930734
 MonoBehaviour:
@@ -58578,7 +58578,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 3
+  g_thisStampColor: 2
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!224 &7356524582808204192
 RectTransform:
@@ -58666,7 +58666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 6
+  g_thisStampColor: 5
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1 &7583130845865275508
 GameObject:
@@ -58900,7 +58900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a281323512b3ef44caa58c03abf5f6d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  g_thisStampColor: 4
+  g_thisStampColor: 3
   g_stampManagerScript: {fileID: 2064575937}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

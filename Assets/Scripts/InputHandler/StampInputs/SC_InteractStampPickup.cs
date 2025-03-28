@@ -17,11 +17,11 @@ public class SC_InteractStampPickup : MonoBehaviour
 	// My item interact receiver
 	private SC_TemporaryItemInteractReceiver g_itemInteractReceiver;
 
-	[SerializeField] private SC_StampSymbolEnum g_thisStampSymbolState;
-	public SC_StampSymbolEnum ThisStampSymbolState
+	[SerializeField] private PackageStampIcon g_thisStampIconState;
+	public PackageStampIcon ThisStampSymbolState
 	{
-		get { return g_thisStampSymbolState; }
-		set { g_thisStampSymbolState = value; }
+		get { return g_thisStampIconState; }
+		set { g_thisStampIconState = value; }
 	}
 
 	[SerializeField] private SC_StampManager g_stampManagerScript;
@@ -81,7 +81,7 @@ public class SC_InteractStampPickup : MonoBehaviour
 	private void SetSymbol()
 	{
 		print("Setting a Symbol in StampManager");
-		g_stampManagerScript.TryGettingSymbol(g_thisStampSymbolState);
+		g_stampManagerScript.TryGettingSymbol(g_thisStampIconState);
 	}
 
 	#endregion
