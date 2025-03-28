@@ -11,12 +11,10 @@ using CameraSystem;
 using UnityEngine;
 
 [RequireComponent(typeof(SC_TemporaryItemInteractReceiver))]
-public class SC_InteractInkColor : MonoBehaviour
+public class SC_TempInteractHasStampFalse : MonoBehaviour
 {
 	// My item interact receiver
 	private SC_TemporaryItemInteractReceiver g_itemInteractReceiver;
-
-	[SerializeField] private SC_StampColorEnum g_thisStampColor;
 
 	[SerializeField] private SC_StampManager g_stampManagerScript;
 
@@ -41,7 +39,7 @@ public class SC_InteractInkColor : MonoBehaviour
 		if (this.TryGetComponent(out SC_TemporaryItemInteractReceiver itemInteractReceiver))
 			g_itemInteractReceiver = itemInteractReceiver;
 		else
-		Debug.LogWarning("Unable to get my _itemInteractReceiver component!");
+			Debug.LogWarning("Unable to get my _itemInteractReceiver component!");
 	}
 
 
@@ -74,8 +72,8 @@ public class SC_InteractInkColor : MonoBehaviour
 
 	private void SetStampColorInManager()
 	{
-		print("Setting ink color in StampManager");
-		g_stampManagerScript.TryGettingSpecificColor(g_thisStampColor);
+		print("Trying to put stamp on package");
+		g_stampManagerScript.TryFinishStamp();
 	}
 
 	#endregion

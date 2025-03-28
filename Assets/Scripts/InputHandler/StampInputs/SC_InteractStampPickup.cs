@@ -1,8 +1,9 @@
 
 // [Summary] (By Arnaud)
 //
-// This script makes a spesific ink color interactable with the stamp, and sets the
-// stamps color.
+// This script picks up a spesific stamp when clicked WHILE no stamp is being held yet.
+// This script gets accessed by the stamp manager to change which icon is currently held;
+// in case the stamp holder gets turned NOT MADE YET; MAYBE LOGIC CHANGES.
 // Copied from "SC_TemporaryInteractTest"
 //
 
@@ -11,12 +12,17 @@ using CameraSystem;
 using UnityEngine;
 
 [RequireComponent(typeof(SC_TemporaryItemInteractReceiver))]
-public class SC_InteractInkColor : MonoBehaviour
+public class SC_InteractStampPickup : MonoBehaviour
 {
 	// My item interact receiver
 	private SC_TemporaryItemInteractReceiver g_itemInteractReceiver;
 
-	[SerializeField] private SC_StampColorEnum g_thisStampColor;
+	[SerializeField] private SC_StampSymbolEnum g_thisStampSymbolState;
+	public SC_StampSymbolEnum ThisStampSymbolState
+	{
+		get { return g_thisStampSymbolState; }
+		set { g_thisStampSymbolState = value; }
+	}
 
 	[SerializeField] private SC_StampManager g_stampManagerScript;
 
@@ -41,7 +47,7 @@ public class SC_InteractInkColor : MonoBehaviour
 		if (this.TryGetComponent(out SC_TemporaryItemInteractReceiver itemInteractReceiver))
 			g_itemInteractReceiver = itemInteractReceiver;
 		else
-		Debug.LogWarning("Unable to get my _itemInteractReceiver component!");
+			Debug.LogWarning("Unable to get my _itemInteractReceiver component!");
 	}
 
 
@@ -69,13 +75,13 @@ public class SC_InteractInkColor : MonoBehaviour
 	private void ReceivedResult()
 	{
 		Debug.Log("I received the signal all the way down here!" + this.gameObject.name);
-		SetStampColorInManager();
+		SetSymbol();
 	}
 
-	private void SetStampColorInManager()
+	private void SetSymbol()
 	{
-		print("Setting ink color in StampManager");
-		g_stampManagerScript.TryGettingSpecificColor(g_thisStampColor);
+		print("Setting a Symbol in StampManager");
+		g_stampManagerScript.TryGettingSymbol(g_thisStampSymbolState);
 	}
 
 	#endregion
