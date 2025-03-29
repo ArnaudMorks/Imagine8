@@ -33,11 +33,24 @@ public class SC_VisualStamp : MonoBehaviour
 				currentSprite = g_allStampIconSprites[2];
 				break;
 			case PackageStampIcon.TRIANGLE:
+				currentSprite = g_allStampIconSprites[3];
 				break;
-			case PackageStampIcon.ASTERRISK:
+			case PackageStampIcon.ASTERRISK:	//??
 				break;
 			case PackageStampIcon.DIAMOND:
-				currentSprite = g_allStampIconSprites[3];
+				currentSprite = g_allStampIconSprites[4];
+				break;
+			case PackageStampIcon.CRESENT:
+				currentSprite = g_allStampIconSprites[5];
+				break;
+			case PackageStampIcon.BOWIE:
+				currentSprite = g_allStampIconSprites[6];
+				break;
+			case PackageStampIcon.HEART:
+				currentSprite = g_allStampIconSprites[7];
+				break;
+			case PackageStampIcon.FLAKE:
+				currentSprite = g_allStampIconSprites[8];
 				break;
 			default:
 				break;

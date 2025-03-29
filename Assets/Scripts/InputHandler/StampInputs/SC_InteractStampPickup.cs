@@ -18,7 +18,7 @@ public class SC_InteractStampPickup : MonoBehaviour
 	private SC_TemporaryItemInteractReceiver g_itemInteractReceiver;
 
 	[SerializeField] private PackageStampIcon g_thisStampIconState;
-	public PackageStampIcon ThisStampSymbolState
+	public PackageStampIcon ThisStampIconState
 	{
 		get { return g_thisStampIconState; }
 		set { g_thisStampIconState = value; }

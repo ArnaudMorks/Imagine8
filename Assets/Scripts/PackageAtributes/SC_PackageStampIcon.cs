@@ -5,5 +5,9 @@ public enum PackageStampIcon
 	CIRCLE,
 	TRIANGLE,
 	ASTERRISK,
-	DIAMOND
+	DIAMOND,
+	CRESENT,
+	BOWIE,
+	HEART,
+	FLAKE
 }
