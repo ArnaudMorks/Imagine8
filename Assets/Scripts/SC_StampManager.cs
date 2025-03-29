@@ -21,12 +21,14 @@ public class SC_StampManager : MonoBehaviour
 	private void SetToHasInk()
 	{
 		g_stampState = SC_StampStateEnum.HAS_INK;
+		SetMoveStampState(g_stampState);
 	}
 
 
 	public void SetMoveStampState(SC_StampStateEnum stampState)	//maybe "private" later
 	{
 		g_movingStampScript.MovingStampState = stampState;
+		g_movingStampScript.TrySnapToPosition();
 	}
 
 	public void TryGettingSymbol(PackageStampIcon iconStampState)
@@ -39,6 +41,11 @@ public class SC_StampManager : MonoBehaviour
 
 			SetMoveStampState(g_stampState);
 			g_visualStampScript.EnableStampVisual(iconStampState);
+		}
+		else
+		{
+			//put stamp back if holding one
+			TryFinishStamp();
 		}
 	}
 
@@ -70,7 +77,7 @@ public class SC_StampManager : MonoBehaviour
 
 	public void TryFinishStamp()			//maybe private later
 	{
-		if (g_stampState == SC_StampStateEnum.HAS_INK)
+		if (g_stampState != SC_StampStateEnum.NOT_HOLDING)
 		{
 			//stamp on package FOR LATER
 			g_stampState = SC_StampStateEnum.NOT_HOLDING;

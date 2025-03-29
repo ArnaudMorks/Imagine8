@@ -2,8 +2,7 @@
 // [Summary] (By Arnaud)
 //
 // This script picks up a spesific stamp when clicked WHILE no stamp is being held yet.
-// This script gets accessed by the stamp manager to change which icon is currently held;
-// in case the stamp holder gets turned NOT MADE YET; MAYBE LOGIC CHANGES.
+// If a stamp is being held, it puts the stamp back.
 // Copied from "SC_TemporaryInteractTest"
 //
 
@@ -81,6 +80,7 @@ public class SC_InteractStampPickup : MonoBehaviour
 	private void SetSymbol()
 	{
 		print("Setting a Symbol in StampManager");
+		//try grabbing stamp, or putting stamp back if holding a stamp already
 		g_stampManagerScript.TryGettingSymbol(g_thisStampIconState);
 	}
 
