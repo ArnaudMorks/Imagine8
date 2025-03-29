@@ -1,8 +1,8 @@
 
 // [Summary] (By Arnaud)
 //
-// This script makes a spesific ink color interactable with the stamp, and sets the
-// stamps color.
+// This script communicates with "SC_StampManager" by activating its functions to put
+// a stamp on the current package, and to set the interactable stamp to the correct state.
 // Copied from "SC_TemporaryInteractTest"
 //
 
@@ -17,6 +17,7 @@ public class SC_TempInteractHasStampFalse : MonoBehaviour
 	private SC_TemporaryItemInteractReceiver g_itemInteractReceiver;
 
 	[SerializeField] private SC_StampManager g_stampManagerScript;
+	[SerializeField] private SC_Package g_thisPackage;
 
 
 	// ----------------- Functions -----------------
@@ -28,6 +29,7 @@ public class SC_TempInteractHasStampFalse : MonoBehaviour
 	private void OnEnable()
 	{
 		TryAssignItemInteractReceiver();
+		StampPackageScriptsObjectsAssign();
 		SubscribeOnReceivedHit();
 
 		// Expand..
@@ -40,6 +42,12 @@ public class SC_TempInteractHasStampFalse : MonoBehaviour
 			g_itemInteractReceiver = itemInteractReceiver;
 		else
 			Debug.LogWarning("Unable to get my _itemInteractReceiver component!");
+	}
+
+	private void StampPackageScriptsObjectsAssign()
+	{
+		g_stampManagerScript = FindFirstObjectByType<SC_StampManager>();
+		g_thisPackage = GetComponentInParent<SC_Package>();
 	}
 
 
@@ -67,13 +75,14 @@ public class SC_TempInteractHasStampFalse : MonoBehaviour
 	private void ReceivedResult()
 	{
 		Debug.Log("I received the signal all the way down here!" + this.gameObject.name);
-		SetStampColorInManager();
+		PutStampOnPackage();
 	}
 
-	private void SetStampColorInManager()
+
+	private void PutStampOnPackage()
 	{
 		print("Trying to put stamp on package");
-		g_stampManagerScript.TryFinishStamp();
+		g_stampManagerScript.TryOnPackageStamp(g_thisPackage);
 	}
 
 	#endregion

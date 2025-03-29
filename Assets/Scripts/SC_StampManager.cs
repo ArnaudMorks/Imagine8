@@ -22,6 +22,8 @@ public class SC_StampManager : MonoBehaviour
 	{
 		g_stampState = SC_StampStateEnum.HAS_INK;
 	}
+
+
 	public void SetMoveStampState(SC_StampStateEnum stampState)	//maybe "private" later
 	{
 		g_movingStampScript.MovingStampState = stampState;
@@ -55,12 +57,22 @@ public class SC_StampManager : MonoBehaviour
 	}
 
 	//triggers when clicking on a package while there is ink on the stamp
-	public void TryFinishStamp()
+	public void TryOnPackageStamp(SC_Package currentPackage)
+	{
+		if (g_stampState == SC_StampStateEnum.HAS_INK)
+		{
+			print("Put a " + g_colorStampEnum + " " + g_iconPackageStamp + " on the package.");
+			//Adds color and icon to the package
+			currentPackage.AddStamp(g_colorStampEnum, g_iconPackageStamp);
+			TryFinishStamp();
+		}
+	}
+
+	public void TryFinishStamp()			//maybe private later
 	{
 		if (g_stampState == SC_StampStateEnum.HAS_INK)
 		{
 			//stamp on package FOR LATER
-			print("Put a " + g_colorStampEnum + " " + g_iconPackageStamp + " on the package.");
 			g_stampState = SC_StampStateEnum.NOT_HOLDING;
 
 			SetMoveStampState(g_stampState);	//Maybe unnecessary everywhere
