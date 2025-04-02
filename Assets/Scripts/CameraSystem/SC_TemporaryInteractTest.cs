@@ -5,7 +5,6 @@
 //
 
 
-using CameraSystem;
 using UnityEngine;
 
 [RequireComponent(typeof(SC_TemporaryItemInteractReceiver))]
