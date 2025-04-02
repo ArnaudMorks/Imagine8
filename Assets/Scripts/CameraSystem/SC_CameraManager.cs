@@ -4,7 +4,6 @@
 // This script is in charge of managing the camera system,
 // it's the center of the camera system holding the ropes.
 //
-
 using UnityEngine;
 
 namespace CameraSystem

@@ -17,7 +17,7 @@ namespace CameraSystem
         [SerializeField] private LayerMask _itemTriggersLayerMask;
         [SerializeField] private float _rayMaxDistance = 100f;
         [SerializeField] private bool _pointerIsOnInterface;
-        
+
         // Actions
         public Action<GameObject> OnHitViewTrigger;
         public Action<GameObject> OnHitItemTrigger;
@@ -108,6 +108,15 @@ namespace CameraSystem
                 return;
 
             Ray ray = Camera.main.ScreenPointToRay(position);
+            if (Physics.Raycast(ray, out RaycastHit hit, _rayMaxDistance, _viewTriggersLayerMask))
+            {
+                if (hit.collider.isTrigger)
+                {
+                    OnHitViewTrigger?.Invoke(hit.rigidbody.gameObject);
+                    return; // Don't go further if hit view!
+                }
+            }
+
             if (Physics.Raycast(ray, out RaycastHit hitTwo, _rayMaxDistance, _itemTriggersLayerMask))
             {
                 if (hitTwo.collider.isTrigger)
@@ -115,12 +124,6 @@ namespace CameraSystem
                     OnHitItemTrigger?.Invoke(hitTwo.rigidbody.gameObject);
                     return; // Don't go further if hit item!
                 }
-            }
-
-            if (Physics.Raycast(ray, out RaycastHit hit, _rayMaxDistance, _viewTriggersLayerMask))
-            {
-                if (hit.collider.isTrigger)
-                    OnHitViewTrigger?.Invoke(hit.rigidbody.gameObject);
             }
         }
 
