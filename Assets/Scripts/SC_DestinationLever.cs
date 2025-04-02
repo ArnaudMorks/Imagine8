@@ -20,6 +20,8 @@ public class SC_DestinationLever : MonoBehaviour
     /// </summary>
     public void TrySetDestination()
     {
+        Debug.Log("HIT");
+
         if (_sendingManager == null) return;
 
         _sendingManager.TrySendPackage(_packageDestination);
