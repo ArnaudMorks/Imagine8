@@ -6,6 +6,7 @@ public class SC_SendingManager : MonoBehaviour
     private SC_PackageSpawner _packageSpawner;
     private SC_ResultDisplay _resultDisplay;
 
+
     private void Awake()
     {
         _resultDisplay = FindAnyObjectByType<SC_ResultDisplay>();

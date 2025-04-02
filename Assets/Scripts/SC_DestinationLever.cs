@@ -1,3 +1,4 @@
+using CameraSystem;
 using UnityEngine;
 
 public class SC_DestinationLever : MonoBehaviour
@@ -6,6 +7,8 @@ public class SC_DestinationLever : MonoBehaviour
 
     private SC_TemporaryItemInteractReceiver _itemInteractReceiver;
     private SC_SendingManager _sendingManager;
+    private SC_CameraManager _cameraManager;
+
 
     private void Awake()
     {
@@ -15,16 +18,17 @@ public class SC_DestinationLever : MonoBehaviour
         _itemInteractReceiver.OnReceivedHit += TrySetDestination;
     }
 
+    private void Start() => _cameraManager = SC_CameraManager.Instance;
+
     /// <summary>
     /// Tries to set the package destination if there is a package in the Scene.
     /// </summary>
     public void TrySetDestination()
     {
-        Debug.Log("HIT");
-
         if (_sendingManager == null) return;
 
         _sendingManager.TrySendPackage(_packageDestination);
+        _cameraManager.ViewerToMainView();
     }
 
     private void TryAssignItemInteractReceiver()
