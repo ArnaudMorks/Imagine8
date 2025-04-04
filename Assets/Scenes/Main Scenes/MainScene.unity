@@ -24713,7 +24713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2490526559876802745, guid: 698206f38248fd440a5b8e316103dda6, type: 3}
       propertyPath: _packageType
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2490526559876802745, guid: 698206f38248fd440a5b8e316103dda6, type: 3}
       propertyPath: _stampValues.Array.size
@@ -38720,6 +38720,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2604022039004151605, guid: 3d2ccef184782f94ba1b5a8efa11ef39, type: 3}
   m_PrefabInstance: {fileID: 1330201446}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1336260326 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3226743026467089171, guid: a029162f45049844f830b7f8c0ecef67, type: 3}
+  m_PrefabInstance: {fileID: 1139069330}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a14b54b5676d114f9a42122ae94e674, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1336949769
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38964,6 +38975,7 @@ MonoBehaviour:
   g_movingStampScript: {fileID: 1923415176}
   g_visualStampScript: {fileID: 758905199}
   g_gettingColorTime: 2
+  g_parcelView: {fileID: 1336260326}
 --- !u!4 &1342196998
 Transform:
   m_ObjectHideFlags: 0
