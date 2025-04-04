@@ -1,5 +1,4 @@
 using System;
-using System.Linq;
 using UnityEngine;
 
 public class SC_PackageSpawner : MonoBehaviour
@@ -51,8 +50,8 @@ public class SC_PackageSpawner : MonoBehaviour
     /// <returns> Reference to current package script.</returns>
     public SC_Package GetCurrentPackage()
     {
-        if (_packages.Length <= _currentPackage) return _packages.Last();
-        return _packages[_currentPackage];
+        //if (_packages.Length <= _currentPackage) return _packages.Last();
+        return _lastPackage.GetComponent<SC_Package>();
     }
 
     private void SpawnPackage()
