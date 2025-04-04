@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class SC_SendingManager : MonoBehaviour
@@ -5,6 +6,8 @@ public class SC_SendingManager : MonoBehaviour
     private SC_Package _currentPackage;
     private SC_PackageSpawner _packageSpawner;
     private SC_ResultDisplay _resultDisplay;
+
+    public Action<SC_Package> OnPackageSend;
 
     private void Awake()
     {
@@ -40,5 +43,7 @@ public class SC_SendingManager : MonoBehaviour
         {
             _resultDisplay.SetResultScreen(true);
         }
+
+        OnPackageSend?.Invoke(_currentPackage);
     }
 }
