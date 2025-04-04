@@ -68,13 +68,12 @@ public class SC_InteractHolderStamp : MonoBehaviour
 	// On received hit result.
 	private void ReceivedResult()
 	{
-		Debug.Log("I received the signal all the way down here!" + this.gameObject.name);
 		TurnToSideInteract();
 	}
 
 	private void TurnToSideInteract()
 	{
-		print("Turn to " + g_turnToDirection + " side");
+		print("Turn to " + g_turnToDirection + " side");	//Remove when animation is made
 		g_holderStampManager.TurnHolderStamp(g_turnToDirection);
 	}
 

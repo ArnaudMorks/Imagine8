@@ -23,6 +23,13 @@ public class SC_InteractStampPickup : MonoBehaviour
 		set { g_thisStampIconState = value; }
 	}
 
+	[SerializeField] private bool g_thisCanPickupStamp;
+	public bool ThisCanPickupStamp
+	{
+		get { return g_thisCanPickupStamp; }
+		set { g_thisCanPickupStamp = value; }
+	}
+
 	[SerializeField] private SC_StampManager g_stampManagerScript;
 
 
@@ -58,8 +65,6 @@ public class SC_InteractStampPickup : MonoBehaviour
 	private void OnDisable()
 	{
 		UnSubscribeOnReceivedHit();
-
-		// Expand..
 	}
 
 	#endregion
@@ -73,15 +78,13 @@ public class SC_InteractStampPickup : MonoBehaviour
 	// On received hit result.
 	private void ReceivedResult()
 	{
-		Debug.Log("I received the signal all the way down here!" + this.gameObject.name);
 		SetSymbol();
 	}
 
 	private void SetSymbol()
 	{
-		print("Setting a Symbol in StampManager");
 		//try grabbing stamp, or putting stamp back if holding a stamp already
-		g_stampManagerScript.TryGettingSymbol(g_thisStampIconState);
+		g_stampManagerScript.TryGettingSymbol(g_thisStampIconState, g_thisCanPickupStamp);
 	}
 
 	#endregion

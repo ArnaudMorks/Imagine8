@@ -59,8 +59,6 @@ public class SC_TempInteractHasStampFalse : MonoBehaviour
 	private void OnDisable()
 	{
 		UnSubscribeOnReceivedHit();
-
-		// Expand..
 	}
 
 	#endregion
@@ -74,14 +72,12 @@ public class SC_TempInteractHasStampFalse : MonoBehaviour
 	// On received hit result.
 	private void ReceivedResult()
 	{
-		Debug.Log("I received the signal all the way down here!" + this.gameObject.name);
 		PutStampOnPackage();
 	}
 
 
 	private void PutStampOnPackage()
 	{
-		print("Trying to put stamp on package");
 		g_stampManagerScript.TryOnPackageStamp(g_thisPackage);
 	}
 

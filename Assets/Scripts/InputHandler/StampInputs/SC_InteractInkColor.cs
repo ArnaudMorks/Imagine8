@@ -68,13 +68,11 @@ public class SC_InteractInkColor : MonoBehaviour
 	// On received hit result.
 	private void ReceivedResult()
 	{
-		Debug.Log("I received the signal all the way down here!" + this.gameObject.name);
 		SetStampColorInManager();
 	}
 
 	private void SetStampColorInManager()
 	{
-		print("Setting ink color in StampManager");
 		g_stampManagerScript.TryGettingSpecificColor(g_thisStampColor);
 	}
 

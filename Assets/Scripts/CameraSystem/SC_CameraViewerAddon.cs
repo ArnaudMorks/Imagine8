@@ -85,6 +85,7 @@ namespace CameraSystem
 
                 _currentView = hitObject.GetComponent<SC_CameraView>();
                 MoveToView(_currentView.GetPositionerObject().transform);
+                SC_StampManager stampManager = FindFirstObjectByType<SC_StampManager>();
                 ActivateInterfaceViewOverlay();
             }
         }

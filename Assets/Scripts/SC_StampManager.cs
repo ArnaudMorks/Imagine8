@@ -17,7 +17,7 @@ public class SC_StampManager : MonoBehaviour
 
 
 
-	//Specific function to invoke
+	//Specific function to invoke because of timer
 	private void SetToHasInk()
 	{
 		g_stampState = SC_StampStateEnum.HAS_INK;
@@ -31,9 +31,9 @@ public class SC_StampManager : MonoBehaviour
 		g_movingStampScript.TrySnapToPosition();
 	}
 
-	public void TryGettingSymbol(PackageStampIcon iconStampState)
+	public void TryGettingSymbol(PackageStampIcon iconStampState, bool canPickupStamp)
 	{
-		if (g_stampState == SC_StampStateEnum.NOT_HOLDING)
+		if (g_stampState == SC_StampStateEnum.NOT_HOLDING && canPickupStamp)
 		{
 			//Disable visual of grabbed stamp LATER
 			g_iconPackageStamp = iconStampState;
@@ -68,7 +68,6 @@ public class SC_StampManager : MonoBehaviour
 	{
 		if (g_stampState == SC_StampStateEnum.HAS_INK)
 		{
-			print("Put a " + g_colorStampEnum + " " + g_iconPackageStamp + " on the package.");
 			//Adds color and icon to the package
 			currentPackage.AddStamp(g_colorStampEnum, g_iconPackageStamp);
 			TryFinishStamp();
