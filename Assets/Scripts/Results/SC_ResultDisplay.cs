@@ -1,4 +1,5 @@
 using System;
+using TimeSystem;
 using TMPro;
 using UnityEngine;
 
@@ -33,6 +34,9 @@ public class SC_ResultDisplay : MonoBehaviour
     /// <param name="state"></param>
     public void SetResultScreen(bool state)
     {
+        if (SC_TimeManager.Instance == true)
+            SC_TimeManager.Instance.RunningIngameTime(!state);
+
         _resultScreen.SetActive(state);
 
         if (state) OnResultScreenEnabled?.Invoke();

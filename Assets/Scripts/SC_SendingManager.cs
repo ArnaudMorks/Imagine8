@@ -1,5 +1,4 @@
 using System;
-using TimeSystem;
 using UnityEngine;
 
 public class SC_SendingManager : MonoBehaviour
@@ -43,9 +42,6 @@ public class SC_SendingManager : MonoBehaviour
 
         if (!hasNewPackage)
         {
-            if (SC_TimeManager.Instance == true)
-                SC_TimeManager.Instance.RunningIngameTime(false);
-
             _resultDisplay.SetResultScreen(true);
         }
     }
