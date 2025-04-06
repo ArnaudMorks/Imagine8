@@ -1,3 +1,4 @@
+using CameraSystem;
 using System;
 using TMPro;
 using UnityEngine;
@@ -33,6 +34,8 @@ public class SC_ResultDisplay : MonoBehaviour
     /// <param name="state"></param>
     public void SetResultScreen(bool state)
     {
+        SC_CameraManager.Instance.ViewerToMainView();
+
         _resultScreen.SetActive(state);
 
         if (state) OnResultScreenEnabled?.Invoke();
