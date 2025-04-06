@@ -3,6 +3,7 @@ using UnityEngine;
 public class SC_HolderStampManager : MonoBehaviour
 {
 	[SerializeField] private SC_HolderStampEnum g_holderStampState;
+	[SerializeField] private Animator g_animator;
 
 	[SerializeField] private SC_InteractStampPickup[] g_interactStampPickups;
 
@@ -21,6 +22,9 @@ public class SC_HolderStampManager : MonoBehaviour
 	[SerializeField] private bool[] g_3ColumnHasStamp;
 	[SerializeField] private bool[] g_4ColumnHasStamp;
 	[SerializeField] private bool[] g_5ColumnHasStamp;
+
+	[SerializeField] private bool g_canClick;
+	[SerializeField] private float g_timerClickable;
 
 
 	private void CheckCurrentState(SC_HolderStampEnum currentHolderStampState)
@@ -58,13 +62,23 @@ public class SC_HolderStampManager : MonoBehaviour
 		{
 			g_interactStampPickups[i].ThisStampIconState = currentColumnStampIcons[i];
 			g_interactStampPickups[i].ThisCanPickupStamp = currentCanPickupStamps[i];
+			g_animator.SetInteger("HolderStampEnum", (int)g_holderStampState);
 		}
+	}
+
+	//Invoked to add a timer that determines when you can click again
+	private void CanClickAgain()
+	{
+		g_canClick = true;
 	}
 
 
 	//"0" = to left side, "1" = to right side
 	public void TurnHolderStamp(int direction)
 	{
+		if (g_canClick == false)
+			return;
+
 		if (direction == 0)
 		{
 			if (g_holderStampState != SC_HolderStampEnum.FIVE)
@@ -79,8 +93,10 @@ public class SC_HolderStampManager : MonoBehaviour
 			else
 				g_holderStampState = SC_HolderStampEnum.FIVE;
 		}
+		g_canClick = false;
 
 		CheckCurrentState(g_holderStampState);
+		Invoke("CanClickAgain", g_timerClickable);
 	}
 
 }
