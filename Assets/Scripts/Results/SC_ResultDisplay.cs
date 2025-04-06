@@ -35,7 +35,7 @@ public class SC_ResultDisplay : MonoBehaviour
     public void SetResultScreen(bool state)
     {
         if (SC_TimeManager.Instance == true)
-            SC_TimeManager.Instance.RunningIngameTime(!state);
+            SC_TimeManager.Instance.RunningIngameTime(false);
 
         _resultScreen.SetActive(state);
 
