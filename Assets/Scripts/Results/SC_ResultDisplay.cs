@@ -1,5 +1,5 @@
-using CameraSystem;
 using System;
+using TimeSystem;
 using TMPro;
 using UnityEngine;
 
@@ -34,7 +34,8 @@ public class SC_ResultDisplay : MonoBehaviour
     /// <param name="state"></param>
     public void SetResultScreen(bool state)
     {
-        SC_CameraManager.Instance.ViewerToMainView();
+        if (SC_TimeManager.Instance == true)
+            SC_TimeManager.Instance.RunningIngameTime(false);
 
         _resultScreen.SetActive(state);
 
