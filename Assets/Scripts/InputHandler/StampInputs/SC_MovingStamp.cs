@@ -26,19 +26,22 @@ public class SC_MovingStamp : MonoBehaviour
 	//"0" = over ink, "1" = over desk
 	[SerializeField] private GameObject[] g_snapPositions;
 
+	[SerializeField] private float g_yInkPosition;
+	[SerializeField] private float g_yDeskPosition;
+
 
 	private void Update()
 	{
 		if (g_stampState == SC_StampStateEnum.OVER_INK_MOVE)
-			CheckAndSetStampPosition(g_rayMaxDistance, g_inkMinXZPosition, g_inkMaxXZPosition);
+			CheckAndSetStampPosition(g_rayMaxDistance, g_inkMinXZPosition, g_inkMaxXZPosition, g_yInkPosition);
 		else if (g_stampState == SC_StampStateEnum.HAS_INK)
-			CheckAndSetStampPosition(g_rayMaxDistance, g_deskMinXZPosition, g_deskMaxXZPosition);
+			CheckAndSetStampPosition(g_rayMaxDistance, g_deskMinXZPosition, g_deskMaxXZPosition, g_yDeskPosition);
 
 	}
 
 
 	private void CheckAndSetStampPosition(float rayMaxDistance, Vector2 minXZPosition,
-		Vector2 maxXZPosition)
+		Vector2 maxXZPosition, float currentYPosition)
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
 		if (Physics.Raycast(ray, out RaycastHit raycastHit, rayMaxDistance, g_itemTriggersLayerMask))
@@ -48,7 +51,7 @@ public class SC_MovingStamp : MonoBehaviour
 			if (raycastHit.point.x > minXZPosition.x && raycastHit.point.x < maxXZPosition.x
 				&& raycastHit.point.z > minXZPosition.y && raycastHit.point.z < maxXZPosition.y)
 			{
-				transform.position = new Vector3(raycastHit.point.x, transform.position.y,
+				transform.position = new Vector3(raycastHit.point.x, currentYPosition,
 					raycastHit.point.z);
 			}
 		}

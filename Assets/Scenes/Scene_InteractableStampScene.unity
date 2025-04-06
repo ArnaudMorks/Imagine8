@@ -14748,7 +14748,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407929333}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 9b59fc3828396024b93d8bfa07e241f5, type: 2}
   m_CullingMode: 0
@@ -30942,7 +30942,7 @@ Transform:
   m_GameObject: {fileID: 993134039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.649, y: 0.775, z: -1.26}
+  m_LocalPosition: {x: 0.649, y: 0.964, z: -0.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30967,7 +30967,7 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.6, y: 0.002, z: 0.43}
+  m_Size: {x: 1.6, y: 0.002, z: 0.9}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &993629191
 PrefabInstance:
@@ -55588,11 +55588,13 @@ MonoBehaviour:
   g_mousePosition: 0
   g_inkMinXZPosition: {x: 1.5, y: -1.55}
   g_inkMaxXZPosition: {x: 1.85, y: -1.1}
-  g_deskMinXZPosition: {x: -0.2, y: -1.48}
-  g_deskMaxXZPosition: {x: 1.66, y: -1.17}
+  g_deskMinXZPosition: {x: -0.06, y: -1.36}
+  g_deskMaxXZPosition: {x: 1.2, y: -0.5}
   g_snapPositions:
   - {fileID: 1085223518}
   - {fileID: 884804671}
+  g_yInkPosition: 0.81
+  g_yDeskPosition: 1.02
 --- !u!4 &1923415177
 Transform:
   m_ObjectHideFlags: 0
@@ -59260,7 +59262,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   g_holderStampState: 0
-  g_animator: {fileID: 0}
+  g_animator: {fileID: 407929335}
   g_interactStampPickups:
   - {fileID: 1204619378}
   - {fileID: 360124343}
