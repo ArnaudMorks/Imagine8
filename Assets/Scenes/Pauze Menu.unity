@@ -21102,7 +21102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &663072716
 Transform:
   m_ObjectHideFlags: 0
@@ -30479,11 +30479,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8654753323672699612, guid: a029162f45049844f830b7f8c0ecef67, type: 3}
       propertyPath: m_Size.y
-      value: 1.1730886
+      value: 0.97000957
       objectReference: {fileID: 0}
     - target: {fileID: 8654753323672699612, guid: a029162f45049844f830b7f8c0ecef67, type: 3}
       propertyPath: m_Size.z
-      value: 1.7817494
+      value: 1.0587677
       objectReference: {fileID: 0}
     - target: {fileID: 8654753323672699612, guid: a029162f45049844f830b7f8c0ecef67, type: 3}
       propertyPath: m_Center.x
@@ -30491,11 +30491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8654753323672699612, guid: a029162f45049844f830b7f8c0ecef67, type: 3}
       propertyPath: m_Center.y
-      value: 0.48654425
+      value: 0.38500476
       objectReference: {fileID: 0}
     - target: {fileID: 8654753323672699612, guid: a029162f45049844f830b7f8c0ecef67, type: 3}
       propertyPath: m_Center.z
-      value: -0.26243788
+      value: 0.099052966
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
