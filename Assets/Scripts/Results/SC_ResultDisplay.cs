@@ -1,3 +1,4 @@
+using CameraSystem;
 using System;
 using TimeSystem;
 using TMPro;
@@ -28,14 +29,29 @@ public class SC_ResultDisplay : MonoBehaviour
         _PackageSpawner.OnFinishList += ShowResults;
     }
 
+    private void Start()
+    {
+        SetScore();
+
+    }
+
     /// <summary>
     /// Sets the final state of the game.
     /// </summary>
     /// <param name="state"></param>
-    public void SetResultScreen(bool state)
+    public void ShowResults()
+    {
+        SetScore();
+        SetTime();
+        SetResultScreen(true);
+    }
+
+    private void SetResultScreen(bool state)
     {
         if (SC_TimeManager.Instance == true)
             SC_TimeManager.Instance.RunningIngameTime(false);
+
+        SC_CameraManager.Instance.ViewerToMainView();
 
         _resultScreen.SetActive(state);
 
@@ -43,11 +59,6 @@ public class SC_ResultDisplay : MonoBehaviour
         else OnResultScreenDisabled?.Invoke();
     }
 
-    private void ShowResults()
-    {
-        SetScore();
-        SetResultScreen(true);
-    }
     private void SetScore()
     {
         int scoreAmount = _ScoringSystem.GetScoring();
@@ -55,5 +66,14 @@ public class SC_ResultDisplay : MonoBehaviour
 
         string score = $"Score: {scoreAmount}/{maxScoreAmount}";
         _scoreText.text = score;
+    }
+
+    private void SetTime()
+    {
+        float currentTime = SC_TimeManager.Instance.GetCurrentTime;
+        string clockTime = SC_TimeManager.Instance.GetTimeToStringHM(currentTime);
+
+        string time = $"Time: {clockTime}";
+        _DurationText.text = time;
     }
 }

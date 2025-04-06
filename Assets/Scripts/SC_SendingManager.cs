@@ -42,7 +42,7 @@ public class SC_SendingManager : MonoBehaviour
 
         if (!hasNewPackage)
         {
-            _resultDisplay.SetResultScreen(true);
+            _resultDisplay.ShowResults();
         }
     }
 }
