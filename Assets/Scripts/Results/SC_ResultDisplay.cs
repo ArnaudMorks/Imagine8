@@ -13,6 +13,9 @@ public class SC_ResultDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _scoreText;
     [SerializeField] private TextMeshProUGUI _DurationText;
 
+    [Space]
+    [SerializeField] private GameObject _TimeDisplay;
+
     private SC_ScoringManager _ScoringSystem;
     private SC_PackageSpawner _PackageSpawner;
 
@@ -41,6 +44,8 @@ public class SC_ResultDisplay : MonoBehaviour
     /// <param name="state"></param>
     public void ShowResults()
     {
+        _TimeDisplay.SetActive(false);
+
         SetScore();
         SetTime();
         SetResultScreen(true);

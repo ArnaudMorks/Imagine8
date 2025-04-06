@@ -52911,6 +52911,7 @@ MonoBehaviour:
   _resultScreen: {fileID: 1008384239}
   _scoreText: {fileID: 364702133}
   _DurationText: {fileID: 364702132}
+  _TimeDisplay: {fileID: 5335714378342539345}
 --- !u!1001 &1753903171
 PrefabInstance:
   m_ObjectHideFlags: 0
