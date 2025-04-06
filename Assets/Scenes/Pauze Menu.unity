@@ -65273,41 +65273,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3283290746354520085, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.54011893
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283290746354520085, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.54011893
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283290746354520085, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.54011893
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283290746354520085, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 12705
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283290746354520085, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 85813
-      objectReference: {fileID: 0}
-    - target: {fileID: 3283290746354520085, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5176307454058173609, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7399326027932798798, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
       propertyPath: m_Name
       value: PauzeMenu
-      objectReference: {fileID: 0}
-    - target: {fileID: 7399326027932798798, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
