@@ -60108,6 +60108,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 430559006}
     m_Modifications:
+    - target: {fileID: 1369139652524703253, guid: 3b340a0df3ab7ee41a9d468c321ae20f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: ac3783659991ac44a948339971c7380a, type: 2}
     - target: {fileID: 2360171009793758603, guid: 3b340a0df3ab7ee41a9d468c321ae20f, type: 3}
       propertyPath: m_Name
       value: Calendar
