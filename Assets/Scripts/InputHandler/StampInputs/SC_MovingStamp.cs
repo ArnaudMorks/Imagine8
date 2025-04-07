@@ -75,12 +75,8 @@ public class SC_MovingStamp : MonoBehaviour
 		float currentXOffset = 0;
 		float currentZOffset = 0;
 
-		//transform.position = new Vector3(g_firstColorXZLocation.x, transform.position.y,
-		//	g_firstColorXZLocation.y);
-
 		for (int i = 0; i <= j; i++)
 		{
-			print(i);
 			if (i != 0)
 			{
 				if (i % 2 == 0)
