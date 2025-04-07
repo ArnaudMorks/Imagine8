@@ -119,7 +119,7 @@ namespace CameraSystem
         // Allows other higher-ups to influence this manager.
         public void ViewerToMainView() => _cameraViewerAddon?.ReturnToMainView();
 
-        public void WieverToNewView(SC_CameraView cameraView) => _cameraViewerAddon?.MoveToCustomView(cameraView);
+        public void VieverToNewView(SC_CameraView cameraView) => _cameraViewerAddon?.MoveToCustomView(cameraView);
 
         #endregion
 

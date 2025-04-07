@@ -73,7 +73,6 @@ public class SC_InteractHolderStamp : MonoBehaviour
 
 	private void TurnToSideInteract()
 	{
-		print("Turn to " + g_turnToDirection + " side");	//Remove when animation is made
 		g_holderStampManager.TurnHolderStamp(g_turnToDirection);
 	}
 

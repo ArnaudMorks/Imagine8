@@ -57,7 +57,6 @@ public class SC_HolderStampManager : MonoBehaviour
 	private void SetCurrentIcons(PackageStampIcon[] currentColumnStampIcons,
 		bool[] currentCanPickupStamps)
 	{
-		print("Setting current icons");
 		for (int i = 0; i < g_interactStampPickups.Length; i++)
 		{
 			g_interactStampPickups[i].ThisStampIconState = currentColumnStampIcons[i];
