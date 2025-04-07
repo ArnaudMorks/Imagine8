@@ -5,7 +5,7 @@ using UnityEngine;
 public class SC_Package : MonoBehaviour
 {
     [Serializable]
-    struct StampValues
+    public struct StampValues
     {
         public PackageStampColor Color;
         public PackageStampIcon Icon;
@@ -18,8 +18,8 @@ public class SC_Package : MonoBehaviour
 
     [Tooltip("Flags")]
     private packageTypes _currentPackageType;
-    private List<StampValues> _currentStamps = new List<StampValues>();
-    private PackageDestination _currentDestination;
+    [SerializeField] public List<StampValues> _currentStamps;
+    [SerializeField] private PackageDestination _currentDestination;
 
     public Action OnAddStamp;
     public Action OnDestinationSet;
@@ -31,9 +31,8 @@ public class SC_Package : MonoBehaviour
     /// <returns>Returns true if all values are matching.</returns>
     public bool CheckFlags()
     {
-        if (_packageType == _currentPackageType) return false;
-        if (_destination == _currentDestination) return false;
-        if (CheckForStamps()) return false;
+        if (_destination != _currentDestination) return false;
+        if (!CheckForStamps()) return false;
 
         return true;
     }
@@ -68,7 +67,12 @@ public class SC_Package : MonoBehaviour
 
     private bool CheckForStamps()
     {
-        List<StampValues> checksLeft = _currentStamps;
+        //Copies the values of to a temporary list to check against.
+        List<StampValues> checksLeft = new List<StampValues>();
+        foreach (var item in _currentStamps)
+        {
+            checksLeft.Add(item);
+        }
 
         foreach (var stamp in _stampValues)
         {

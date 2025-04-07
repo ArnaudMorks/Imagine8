@@ -32,6 +32,9 @@ public class SC_TemporaryGameMaster : MonoBehaviour
     {
         foreach (GameObject thisObject in _activationOrder)
         {
+            if (thisObject == null)
+                continue;
+
             thisObject.SetActive(true);
         }
     }
