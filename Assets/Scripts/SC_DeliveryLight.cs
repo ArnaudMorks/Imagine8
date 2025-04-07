@@ -22,6 +22,7 @@ public class DeliveryLight : MonoBehaviour
     }
 
     private void TrySetLightMaterial(SC_Package package) => StartCoroutine(SetLightMaterial(package, _LightDuration));
+
     private IEnumerator SetLightMaterial(SC_Package package, float amountTime)
     {
         if (package.CheckFlags())

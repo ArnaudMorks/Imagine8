@@ -85,9 +85,6 @@ namespace CameraSystem
 
                 _currentView = hitObject.GetComponent<SC_CameraView>();
                 MoveToView(_currentView.GetPositionerObject().transform);
-                _currentView.gameObject.SetActive(false);
-
-                SC_StampManager stampManager = FindFirstObjectByType<SC_StampManager>();
                 ActivateInterfaceViewOverlay();
             }
         }
@@ -139,28 +136,9 @@ namespace CameraSystem
 
             DeactivateInterfaceViewOverlay();
 
-            if (_currentView != null)
-                _currentView.gameObject.SetActive(true);
-
             _currentView = _mainView;
             MoveToView(_mainView.GetPositionerObject().transform);
             ActivateInterfaceViewOverlay();
-        }
-
-        // Manager commands you to go a given view overlay.
-        public void MoveToCustomView(SC_CameraView cameraView)
-        {
-            if (_currentView != null)
-            {
-                DeactivateInterfaceViewOverlay();
-                _currentView.gameObject.SetActive(true);
-
-                _currentView = cameraView;
-                MoveToView(_currentView.GetPositionerObject().transform);
-                _currentView.gameObject.SetActive(false);
-
-                ActivateInterfaceViewOverlay();
-            }
         }
 
         #endregion

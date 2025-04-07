@@ -38,11 +38,12 @@ public class SC_SendingManager : MonoBehaviour
         _currentPackage.OnDestinationSet?.Invoke();
 
         bool hasNewPackage = _packageSpawner.TrySpawnPackage();
-        OnPackageSend?.Invoke(_currentPackage);
 
         if (!hasNewPackage)
         {
-            _resultDisplay.ShowResults();
+            _resultDisplay.SetResultScreen(true);
         }
+
+        OnPackageSend?.Invoke(_currentPackage);
     }
 }

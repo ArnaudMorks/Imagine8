@@ -136,7 +136,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Heavy_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_0
       rect:
         serializedVersion: 2
         x: 0
@@ -158,7 +158,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: France_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_1
       rect:
         serializedVersion: 2
         x: 512
@@ -180,7 +180,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Rainy_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_2
       rect:
         serializedVersion: 2
         x: 1024
@@ -202,7 +202,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Square_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_3
       rect:
         serializedVersion: 2
         x: 1536
@@ -224,7 +224,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Light_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_4
       rect:
         serializedVersion: 2
         x: 0
@@ -246,7 +246,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Germany_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_5
       rect:
         serializedVersion: 2
         x: 512
@@ -268,7 +268,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sunny_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_6
       rect:
         serializedVersion: 2
         x: 1024
@@ -290,7 +290,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Star_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_7
       rect:
         serializedVersion: 2
         x: 1536
@@ -312,7 +312,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Wowie_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_8
       rect:
         serializedVersion: 2
         x: 0
@@ -334,7 +334,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UnitedKingdom_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_9
       rect:
         serializedVersion: 2
         x: 512
@@ -356,7 +356,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Windy_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_10
       rect:
         serializedVersion: 2
         x: 1024
@@ -378,7 +378,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Circle_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_11
       rect:
         serializedVersion: 2
         x: 1536
@@ -400,7 +400,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Bowie_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_12
       rect:
         serializedVersion: 2
         x: 0
@@ -422,7 +422,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: China_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_13
       rect:
         serializedVersion: 2
         x: 510
@@ -444,7 +444,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Stormy_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_14
       rect:
         serializedVersion: 2
         x: 1024
@@ -466,7 +466,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Triangle_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_15
       rect:
         serializedVersion: 2
         x: 1536
@@ -488,7 +488,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Medium_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_16
       rect:
         serializedVersion: 2
         x: 0
@@ -510,7 +510,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SovietUnion_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_17
       rect:
         serializedVersion: 2
         x: 512
@@ -532,7 +532,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Cloudy_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_18
       rect:
         serializedVersion: 2
         x: 1024
@@ -554,7 +554,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Flake_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_19
       rect:
         serializedVersion: 2
         x: 1536
@@ -576,7 +576,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Feather_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_20
       rect:
         serializedVersion: 2
         x: 0
@@ -598,7 +598,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Spain_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_21
       rect:
         serializedVersion: 2
         x: 512
@@ -620,7 +620,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Snowy_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_22
       rect:
         serializedVersion: 2
         x: 1024
@@ -642,7 +642,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Diamond_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_23
       rect:
         serializedVersion: 2
         x: 1536
@@ -664,7 +664,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Overwieght_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_24
       rect:
         serializedVersion: 2
         x: 0
@@ -686,7 +686,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Benelux_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_25
       rect:
         serializedVersion: 2
         x: 512
@@ -708,7 +708,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Foggy_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_26
       rect:
         serializedVersion: 2
         x: 1024
@@ -730,7 +730,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Heart_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_27
       rect:
         serializedVersion: 2
         x: 1536
@@ -752,7 +752,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Underweight_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_28
       rect:
         serializedVersion: 2
         x: 0
@@ -774,7 +774,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: UnitedStates_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_29
       rect:
         serializedVersion: 2
         x: 512
@@ -796,7 +796,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Sleety_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_30
       rect:
         serializedVersion: 2
         x: 1024
@@ -818,7 +818,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Crescent_SpriteSheet_StampNames
+      name: SpriteSheet_StampNames_V1_31
       rect:
         serializedVersion: 2
         x: 1536
@@ -853,38 +853,38 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Benelux_SpriteSheet_StampNames: -80673871
-      Bowie_SpriteSheet_StampNames: 1269870377
-      China_SpriteSheet_StampNames: 96235645
-      Circle_SpriteSheet_StampNames: 1505491323
-      Cloudy_SpriteSheet_StampNames: 958239440
-      Crescent_SpriteSheet_StampNames: -1666410707
-      Diamond_SpriteSheet_StampNames: -1599821345
-      Feather_SpriteSheet_StampNames: -899322889
-      Flake_SpriteSheet_StampNames: 438014533
-      Foggy_SpriteSheet_StampNames: 909435347
-      France_SpriteSheet_StampNames: -1077834744
-      Germany_SpriteSheet_StampNames: 1280251123
-      Heart_SpriteSheet_StampNames: 670465018
-      Heavy_SpriteSheet_StampNames: -40380848
-      Light_SpriteSheet_StampNames: 1774546050
-      Medium_SpriteSheet_StampNames: 811249580
-      Overwieght_SpriteSheet_StampNames: -1635041623
-      Rainy_SpriteSheet_StampNames: -1015520647
-      Sleety_SpriteSheet_StampNames: 2029871199
-      Snowy_SpriteSheet_StampNames: 525911106
-      SovietUnion_SpriteSheet_StampNames: -852650742
-      Spain_SpriteSheet_StampNames: -941396244
-      Square_SpriteSheet_StampNames: -165069069
-      Star_SpriteSheet_StampNames: 1149409990
-      Stormy_SpriteSheet_StampNames: 128918270
-      Sunny_SpriteSheet_StampNames: 1884579049
-      Triangle_SpriteSheet_StampNames: 210945120
-      Underweight_SpriteSheet_StampNames: 2063762727
-      UnitedKingdom_SpriteSheet_StampNames: -1116378883
-      UnitedStates_SpriteSheet_StampNames: 294790402
-      Windy_SpriteSheet_StampNames: -484520281
-      Wowie_SpriteSheet_StampNames: 846891476
+      SpriteSheet_StampNames_V1_0: -40380848
+      SpriteSheet_StampNames_V1_1: -1077834744
+      SpriteSheet_StampNames_V1_10: -484520281
+      SpriteSheet_StampNames_V1_11: 1505491323
+      SpriteSheet_StampNames_V1_12: 1269870377
+      SpriteSheet_StampNames_V1_13: 96235645
+      SpriteSheet_StampNames_V1_14: 128918270
+      SpriteSheet_StampNames_V1_15: 210945120
+      SpriteSheet_StampNames_V1_16: 811249580
+      SpriteSheet_StampNames_V1_17: -852650742
+      SpriteSheet_StampNames_V1_18: 958239440
+      SpriteSheet_StampNames_V1_19: 438014533
+      SpriteSheet_StampNames_V1_2: -1015520647
+      SpriteSheet_StampNames_V1_20: -899322889
+      SpriteSheet_StampNames_V1_21: -941396244
+      SpriteSheet_StampNames_V1_22: 525911106
+      SpriteSheet_StampNames_V1_23: -1599821345
+      SpriteSheet_StampNames_V1_24: -1635041623
+      SpriteSheet_StampNames_V1_25: -80673871
+      SpriteSheet_StampNames_V1_26: 909435347
+      SpriteSheet_StampNames_V1_27: 670465018
+      SpriteSheet_StampNames_V1_28: 2063762727
+      SpriteSheet_StampNames_V1_29: 294790402
+      SpriteSheet_StampNames_V1_3: -165069069
+      SpriteSheet_StampNames_V1_30: 2029871199
+      SpriteSheet_StampNames_V1_31: -1666410707
+      SpriteSheet_StampNames_V1_4: 1774546050
+      SpriteSheet_StampNames_V1_5: 1280251123
+      SpriteSheet_StampNames_V1_6: 1884579049
+      SpriteSheet_StampNames_V1_7: 1149409990
+      SpriteSheet_StampNames_V1_8: 846891476
+      SpriteSheet_StampNames_V1_9: -1116378883
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
