@@ -31,7 +31,8 @@ public class SC_SceneChanger : MonoBehaviour
 
     private void ResetSigletonsValues()
     {
-        _timeManager.RunningIngameTime(true);
+        if (_timeManager != null)
+            _timeManager.RunningIngameTime(true);
 
         //Expand...
     }
