@@ -13,6 +13,7 @@ public class SC_StampManager : MonoBehaviour
 
 	[SerializeField] private SC_MovingStamp g_movingStampScript;
 	[SerializeField] private SC_VisualStamp g_visualStampScript;
+	[SerializeField] private SC_VisualHolderStamps g_visualHolderScript;
 
 	[SerializeField] private float g_gettingColorTime;
 
@@ -27,6 +28,21 @@ public class SC_StampManager : MonoBehaviour
 		SetMoveStampState(g_stampState);
 	}
 
+	private void TryFinishStamp()
+	{
+		if (g_stampState != SC_StampStateEnum.NOT_HOLDING)
+		{
+			//stamp on package FOR LATER
+			g_stampState = SC_StampStateEnum.NOT_HOLDING;
+
+			SetMoveStampState(g_stampState);    //Maybe unnecessary everywhere
+
+			//Enables and disables correct visuals
+			g_visualHolderScript.EnableStampOnHolder();
+			g_visualStampScript.DisableStampVisual();
+		}
+	}
+
 
 	public void SetMoveStampState(SC_StampStateEnum stampState) //maybe "private" later
 	{
@@ -38,11 +54,13 @@ public class SC_StampManager : MonoBehaviour
 	{
 		if (g_stampState == SC_StampStateEnum.NOT_HOLDING && canPickupStamp)
 		{
-			//Disable visual of grabbed stamp LATER
 			g_iconPackageStamp = iconStampState;
 			g_stampState = SC_StampStateEnum.OVER_INK_MOVE;
 
 			SetMoveStampState(g_stampState);
+
+			//Disables and enables correct visuals
+			g_visualHolderScript.DisableStampOnHolder(iconStampState);
 			g_visualStampScript.EnableStampVisual(iconStampState);
 		}
 		else
@@ -61,7 +79,7 @@ public class SC_StampManager : MonoBehaviour
 			g_stampState = SC_StampStateEnum.GETTING_INK;
 
 			SetMoveStampState(g_stampState);
-			g_visualStampScript.SetVisualColorStamp(stampColorEnum);    //add timer based on animation later
+			g_visualStampScript.SetVisualColorStamp(stampColorEnum);	//add timer based on animation later
 			Invoke("SetToHasInk", g_gettingColorTime);
 
 			SC_CameraManager.Instance.VieverToNewView(g_parcelView);
@@ -76,18 +94,6 @@ public class SC_StampManager : MonoBehaviour
 			//Adds color and icon to the package
 			currentPackage.AddStamp(g_colorStampEnum, g_iconPackageStamp);
 			TryFinishStamp();
-		}
-	}
-
-	public void TryFinishStamp()            //maybe private later
-	{
-		if (g_stampState != SC_StampStateEnum.NOT_HOLDING)
-		{
-			//stamp on package FOR LATER
-			g_stampState = SC_StampStateEnum.NOT_HOLDING;
-
-			SetMoveStampState(g_stampState);    //Maybe unnecessary everywhere
-			g_visualStampScript.DisableStampVisual();
 		}
 	}
 
