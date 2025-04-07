@@ -51,8 +51,6 @@ namespace TimeSystem
         // Time event result logic.
         private void PlayAudio()
         {
-            print("Enter");
-
             if (_manager.GetCurrentTime == lastTimeFrame) return;
             lastTimeFrame = _manager.GetCurrentTime;
 

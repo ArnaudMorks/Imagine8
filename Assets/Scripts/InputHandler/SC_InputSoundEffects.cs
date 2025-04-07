@@ -11,9 +11,11 @@ public class SC_InputSoundEffects : MonoBehaviour
     {
         TryToAssignInputHandler();
         TryToAssignAdioSource();
+
+        SubscribeToClickInput();
     }
 
-    private void PlayAudio()
+    private void PlayAudio(Vector2 vector)
     {
         _audioSource.Play();
     }
@@ -37,6 +39,6 @@ public class SC_InputSoundEffects : MonoBehaviour
         }
     }
 
-    private void SubscribeToClickInput() => _inputHandler.OnEscapeKey += PlayAudio;
-    private void UnSubscribeToClickInput() => _inputHandler.OnEscapeKey -= PlayAudio;
+    private void SubscribeToClickInput() => _inputHandler.OnLeftMouseClick += PlayAudio;
+    private void UnSubscribeToClickInput() => _inputHandler.OnLeftMouseClick -= PlayAudio;
 }
