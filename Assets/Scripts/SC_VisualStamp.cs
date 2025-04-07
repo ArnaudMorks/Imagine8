@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SC_VisualStamp : MonoBehaviour
 {
+	[SerializeField] private Animator g_animatorStamp;
+
 	[SerializeField] private Sprite[] g_allStampIconSprites;
 	[SerializeField] private GameObject g_spriteStampObject;
 
@@ -13,6 +15,11 @@ public class SC_VisualStamp : MonoBehaviour
 	//Assumes the "g_allStampColors" is the same order as "PackageStampColor"
 	//"8" = grey; DOES NOT EXIST IN ENUM
 	[SerializeField] private Material[] g_allStampColors;
+
+	[SerializeField] private PackageStampColor g_currentStateColor;
+
+	//Match with animation on ink
+	[SerializeField] private float g_colorInkTime;
 
 
 	//MAKE BETTER SYSTEM LATER
@@ -60,15 +67,29 @@ public class SC_VisualStamp : MonoBehaviour
 
 	}
 
-
-	public void SetVisualColorStamp(PackageStampColor stampColorEnum)
+	//Executed from "SetCurrentAnimationStamp" when getting ink
+	private void SetVisualColorStamp()
 	{
-		g_currentStampColor = g_allStampColors[((int)stampColorEnum)];
+		g_currentStampColor = g_allStampColors[((int)g_currentStateColor)];
 
 		if (g_interactStampObjectParts[2].GetComponent<MeshRenderer>().material != null)
 			g_interactStampObjectParts[2].GetComponent<MeshRenderer>().material = g_currentStampColor;
 		else
 			Debug.LogError("Couldn't find MeshRenderer in InteractStamp");
+	}
+
+
+	public void SetCurrentAnimationStamp(SC_StampStateEnum stampState,
+		PackageStampColor stampColorEnum)
+	{
+		//"stampColorEnum" only useful when gettin ink
+		if (stampState == SC_StampStateEnum.GETTING_INK)
+		{
+			g_currentStateColor = stampColorEnum;
+			Invoke("SetVisualColorStamp", g_colorInkTime);
+		}
+
+		g_animatorStamp.SetInteger("StampState", (int)stampState);
 	}
 
 	public void EnableStampVisual(PackageStampIcon iconStampEnum)

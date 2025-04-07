@@ -26,6 +26,7 @@ public class SC_StampManager : MonoBehaviour
 	{
 		g_stampState = SC_StampStateEnum.HAS_INK;
 		SetMoveStampState(g_stampState);
+		g_visualStampScript.SetCurrentAnimationStamp(g_stampState, g_colorStampEnum);
 
 		SC_CameraManager.Instance.VieverToNewView(g_parcelView);
 	}
@@ -37,7 +38,7 @@ public class SC_StampManager : MonoBehaviour
 			//stamp on package FOR LATER
 			g_stampState = SC_StampStateEnum.NOT_HOLDING;
 
-			SetMoveStampState(g_stampState);    //Maybe unnecessary everywhere
+			SetMoveStampState(g_stampState);	//Maybe unnecessary everywhere
 
 			//Enables and disables correct visuals
 			g_visualHolderScript.EnableStampOnHolder();
@@ -82,7 +83,8 @@ public class SC_StampManager : MonoBehaviour
 
 			SetMoveStampState(g_stampState);
 			g_movingStampScript.TrySetCurrentColorPosition(stampColorEnum);
-			g_visualStampScript.SetVisualColorStamp(stampColorEnum);	//add timer based on animation later
+			g_visualStampScript.SetCurrentAnimationStamp(g_stampState, stampColorEnum);
+			//g_visualStampScript.SetVisualColorStamp(stampColorEnum);	//add timer based on animation later
 			Invoke("SetToHasInk", g_gettingColorTime);
 		}
 	}
