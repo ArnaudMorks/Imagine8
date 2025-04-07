@@ -12,7 +12,7 @@ public class SC_MovingStamp : MonoBehaviour
 		set { g_stampState = value; }
 	}
 
-	[SerializeField] private LayerMask g_itemTriggersLayerMask;
+	[SerializeField] private LayerMask g_stampMoveTriggersLayerMask;
 	[SerializeField] private float g_rayMaxDistance;
 	[SerializeField] private float g_mousePosition;
 
@@ -22,6 +22,11 @@ public class SC_MovingStamp : MonoBehaviour
 
 	[SerializeField] private Vector2 g_deskMinXZPosition;
 	[SerializeField] private Vector2 g_deskMaxXZPosition;
+
+	//Ink snap when getting ink
+	//Location of upper left color
+	[SerializeField] private Vector2 g_firstColorXZLocation;
+	[SerializeField] private Vector2 g_nextColorXZOffset;
 
 	//"0" = over ink, "1" = over desk
 	[SerializeField] private GameObject[] g_snapPositions;
@@ -44,7 +49,7 @@ public class SC_MovingStamp : MonoBehaviour
 		Vector2 maxXZPosition, float currentYPosition)
 	{
 		Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-		if (Physics.Raycast(ray, out RaycastHit raycastHit, rayMaxDistance, g_itemTriggersLayerMask))
+		if (Physics.Raycast(ray, out RaycastHit raycastHit, rayMaxDistance, g_stampMoveTriggersLayerMask))
 		{
 				//print(raycastHit.point);
 
@@ -58,6 +63,40 @@ public class SC_MovingStamp : MonoBehaviour
 
 	}
 
+
+	public void TrySetCurrentColorPosition(PackageStampColor currentColor)
+	{
+		if (g_stampState != SC_StampStateEnum.GETTING_INK)
+			return;
+
+		int j = ((int)currentColor);
+
+		//"Offset" from first color
+		float currentXOffset = 0;
+		float currentZOffset = 0;
+
+		//transform.position = new Vector3(g_firstColorXZLocation.x, transform.position.y,
+		//	g_firstColorXZLocation.y);
+
+		for (int i = 0; i <= j; i++)
+		{
+			print(i);
+			if (i != 0)
+			{
+				if (i % 2 == 0)
+				{
+					currentZOffset += g_nextColorXZOffset.y;
+
+					currentXOffset = 0;     //"0" because it's already at the correct position by default
+				}
+				else
+					currentXOffset = g_nextColorXZOffset.x;
+			}
+		}
+
+		transform.position = new Vector3(g_firstColorXZLocation.x + currentXOffset,
+			transform.position.y, g_firstColorXZLocation.y - currentZOffset);
+	}
 
 	public void TrySnapToPosition()
 	{

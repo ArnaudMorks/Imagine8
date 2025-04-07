@@ -1751,7 +1751,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -2392,7 +2392,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -2567,7 +2567,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -13313,7 +13313,7 @@ Transform:
   m_GameObject: {fileID: 387765865}
   serializedVersion: 2
   m_LocalRotation: {x: 0.0019263437, y: -0.0007374897, z: 0.0011611745, w: 0.99999726}
-  m_LocalPosition: {x: 1.7875292, y: 0.7500001, z: -1.1125482}
+  m_LocalPosition: {x: 1.7875292, y: 0.75, z: -1.1125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13385,7 +13385,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -16663,7 +16663,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -18400,6 +18400,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 364004166625841733, guid: 76554a35a41028e49808e4f2580c7d47, type: 3}
   m_PrefabInstance: {fileID: 584980361}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &585386541
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 585386542}
+  - component: {fileID: 585386543}
+  m_Layer: 8
+  m_Name: MouseOverInkHitbox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &585386542
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585386541}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.678, y: 0.7761, z: -1.315}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 851797099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &585386543
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 585386541}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.44, y: 0.025, z: 0.45}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1001 &587768073
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -26490,6 +26543,7 @@ Transform:
   - {fileID: 968186180}
   - {fileID: 44020963}
   - {fileID: 509399542}
+  - {fileID: 585386542}
   m_Father: {fileID: 1294551015}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &863450417
@@ -30399,7 +30453,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -31193,7 +31247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 993134040}
   - component: {fileID: 993134041}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: DeskInteract
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -31209,7 +31263,7 @@ Transform:
   m_GameObject: {fileID: 993134039}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.649, y: 0.775, z: -0.97}
+  m_LocalPosition: {x: 0.649, y: 0.926, z: -0.97}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -31228,9 +31282,9 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -40972,6 +41026,7 @@ MonoBehaviour:
   g_colorStampEnum: 0
   g_movingStampScript: {fileID: 1923415176}
   g_visualStampScript: {fileID: 758905199}
+  g_visualHolderScript: {fileID: 930188304}
   g_gettingColorTime: 2
   g_parcelView: {fileID: 1336260326}
 --- !u!4 &1342196998
@@ -57937,7 +57992,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -58041,15 +58096,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   g_stampState: 0
-  g_itemTriggersLayerMask:
+  g_stampMoveTriggersLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 256
   g_rayMaxDistance: 800
   g_mousePosition: 0
   g_inkMinXZPosition: {x: 1.5, y: -1.55}
   g_inkMaxXZPosition: {x: 1.85, y: -1.1}
   g_deskMinXZPosition: {x: -0.06, y: -1.36}
   g_deskMaxXZPosition: {x: 1.2, y: -0.5}
+  g_firstColorXZLocation: {x: 1.5625, y: -1.1125}
+  g_nextColorXZOffset: {x: 0.22503, y: 0.125}
   g_snapPositions:
   - {fileID: 1085223518}
   - {fileID: 884804671}
@@ -58064,7 +58121,7 @@ Transform:
   m_GameObject: {fileID: 1923415175}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.687, y: 0.8122, z: -1.156}
+  m_LocalPosition: {x: 1.5625, y: 0.8122, z: -1.1125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -62938,7 +62995,7 @@ BoxCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
