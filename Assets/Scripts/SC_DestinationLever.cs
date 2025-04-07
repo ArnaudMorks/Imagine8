@@ -4,6 +4,7 @@ using UnityEngine;
 public class SC_DestinationLever : MonoBehaviour
 {
     [SerializeField] private PackageDestination _packageDestination;
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Animator _animator;
 
     private SC_TemporaryItemInteractReceiver _itemInteractReceiver;
@@ -28,6 +29,8 @@ public class SC_DestinationLever : MonoBehaviour
 
         _sendingManager.TrySendPackage(_packageDestination);
         SC_CameraManager.Instance.ViewerToMainView();
+
+        _audioSource.Play();
         _animator.Play("LeverPullanim");
     }
 
