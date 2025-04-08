@@ -41057,6 +41057,7 @@ MonoBehaviour:
   g_timeInkStamping: 1.4
   g_timeOnPackageStamping: 0.5
   g_parcelView: {fileID: 1336260326}
+  g_mainView: {fileID: 39890970}
 --- !u!4 &1342196998
 Transform:
   m_ObjectHideFlags: 0

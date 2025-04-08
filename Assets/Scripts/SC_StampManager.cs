@@ -24,6 +24,9 @@ public class SC_StampManager : MonoBehaviour
 	[Header("Parcel View")]
 	[SerializeField] private SC_CameraView g_parcelView;
 
+	[Header("Main View")]
+	[SerializeField] private SC_CameraView g_mainView;
+
 
 	//Specific function to invoke because of timer
 	private void SetToHasInk()
@@ -39,6 +42,9 @@ public class SC_StampManager : MonoBehaviour
 	{
 		//Adds color and icon to the package
 		g_latestPackage.AddStamp(g_colorStampEnum, g_iconPackageStamp);
+
+		SC_CameraManager.Instance.VieverToNewView(g_mainView);
+
 		TryFinishStamp();
 	}
 
