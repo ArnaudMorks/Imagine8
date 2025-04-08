@@ -54,7 +54,8 @@ namespace TimeSystem
             if (_manager.GetCurrentTime == lastTimeFrame) return;
             lastTimeFrame = _manager.GetCurrentTime;
 
-            _Source.Play();
+            if (_Source.isActiveAndEnabled)
+                _Source.Play();
         }
 
         // Tell the time manager to stop or run time.
