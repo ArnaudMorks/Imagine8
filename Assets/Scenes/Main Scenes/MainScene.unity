@@ -857,7 +857,7 @@ PrefabInstance:
       objectReference: {fileID: 1141019633}
     - target: {fileID: 8379642758689398750, guid: 97dfcfa2222a9ab43b604af4bea75d9b, type: 3}
       propertyPath: _packageDestination
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9220986724652325555, guid: 97dfcfa2222a9ab43b604af4bea75d9b, type: 3}
       propertyPath: m_IsTrigger
@@ -44506,6 +44506,10 @@ PrefabInstance:
       propertyPath: _audioSource
       value: 
       objectReference: {fileID: 1141019633}
+    - target: {fileID: 8379642758689398750, guid: 97dfcfa2222a9ab43b604af4bea75d9b, type: 3}
+      propertyPath: _packageDestination
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9220986724652325555, guid: 97dfcfa2222a9ab43b604af4bea75d9b, type: 3}
       propertyPath: m_IsTrigger
       value: 1
@@ -76072,6 +76076,10 @@ PrefabInstance:
     - target: {fileID: 552799891235627353, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 785291902628683291, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
+      propertyPath: m_text
+      value: Controls
       objectReference: {fileID: 0}
     - target: {fileID: 1432409950240255047, guid: ab9226d2582328941949c9ce6047c0ba, type: 3}
       propertyPath: m_Pivot.x
