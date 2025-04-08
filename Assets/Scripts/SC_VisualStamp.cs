@@ -79,22 +79,22 @@ public class SC_VisualStamp : MonoBehaviour
 	}
 
 
-	public void SetCurrentAnimationStamp(SC_StampStateEnum stampState,
-		PackageStampColor stampColorEnum)
+	public void SetCurrentInk(PackageStampColor stampColorEnum)
 	{
-		//"stampColorEnum" only useful when gettin ink
-		if (stampState == SC_StampStateEnum.GETTING_INK)
-		{
 			g_currentStateColor = stampColorEnum;
+			SetCurrentAnimationStamp(1);
 			Invoke("SetVisualColorStamp", g_colorInkTime);
-		}
 
-		g_animatorStamp.SetInteger("StampState", (int)stampState);
+	}
+
+	//"setCurrentAnimation": "0" = idle, "1" = stamping animation
+	public void SetCurrentAnimationStamp(int setCurrentAnimation)
+	{
+		g_animatorStamp.SetInteger("StampAnimState", setCurrentAnimation);
 	}
 
 	public void EnableStampVisual(PackageStampIcon iconStampEnum)
 	{
-		//take original; FOR LATER
 		SpriteRenderer spriteRenderer = g_spriteStampObject.GetComponent<SpriteRenderer>();
 		spriteRenderer.enabled = true;
 
@@ -114,7 +114,6 @@ public class SC_VisualStamp : MonoBehaviour
 
 	public void DisableStampVisual()
 	{
-		//put original back; FOR LATER
 		SpriteRenderer spriteRenderer = g_spriteStampObject.GetComponent<SpriteRenderer>();
 		spriteRenderer.enabled = false;
 
@@ -123,6 +122,9 @@ public class SC_VisualStamp : MonoBehaviour
 			MeshRenderer meshRenderer = g_interactStampObjectParts[i].GetComponent<MeshRenderer>();
 			meshRenderer.enabled = false;
 		}
+
+		//Reset animation to "idle"
+		SetCurrentAnimationStamp(0);
 	}
 
 }

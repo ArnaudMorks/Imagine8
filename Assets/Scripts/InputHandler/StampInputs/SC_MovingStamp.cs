@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 public class SC_MovingStamp : MonoBehaviour
 {
 	[SerializeField] private SC_StampStateEnum g_stampState;
-	public SC_StampStateEnum MovingStampState		//maybe in function later
+	public SC_StampStateEnum MovingStampState
 	{
 		get { return g_stampState; }
 		set { g_stampState = value; }

@@ -41053,7 +41053,9 @@ MonoBehaviour:
   g_movingStampScript: {fileID: 1923415176}
   g_visualStampScript: {fileID: 758905199}
   g_visualHolderScript: {fileID: 930188304}
-  g_gettingColorTime: 1.4
+  g_latestPackage: {fileID: 0}
+  g_timeInkStamping: 1.4
+  g_timeOnPackageStamping: 0.5
   g_parcelView: {fileID: 1336260326}
 --- !u!4 &1342196998
 Transform:
@@ -58137,7 +58139,7 @@ MonoBehaviour:
   - {fileID: 1085223518}
   - {fileID: 884804671}
   g_yInkPosition: 0.81
-  g_yDeskPosition: 1.02
+  g_yDeskPosition: 1.06
 --- !u!4 &1923415177
 Transform:
   m_ObjectHideFlags: 0
