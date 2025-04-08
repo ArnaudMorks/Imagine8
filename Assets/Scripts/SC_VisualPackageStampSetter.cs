@@ -12,6 +12,7 @@ public class SC_VisualPackageStampSetter : MonoBehaviour
 	[SerializeField] private Sprite[] g_allStampedIconSprites;
 	[SerializeField] private Color[] g_visualColors;
 
+	[SerializeField] private float g_yPosition;
 
 	private Sprite SymbolToImageSetter(PackageStampIcon iconStampEnum)
 	{
@@ -55,6 +56,15 @@ public class SC_VisualPackageStampSetter : MonoBehaviour
 		currentSprite = g_allStampedIconSprites[i];
 
 		return currentSprite;
+	}
+
+
+	public void MakeVisualIconOnPackage(int spriteArrayLocation, int colorArrayLocation, 
+		Vector3 movingStampPosition)
+	{
+		g_poolStamps.ActivateStampVisual(g_allStampedIconSprites[spriteArrayLocation],
+			g_visualColors[colorArrayLocation],
+			new Vector3(movingStampPosition.x, g_yPosition, movingStampPosition.z));
 	}
 
 }

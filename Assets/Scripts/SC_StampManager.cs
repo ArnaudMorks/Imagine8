@@ -15,6 +15,7 @@ public class SC_StampManager : MonoBehaviour
     [SerializeField] private SC_VisualStamp g_visualStampScript;
     [SerializeField] private SC_VisualHolderStamps g_visualHolderScript;
 
+    [SerializeField] private SC_VisualPackageStampSetter g_visualPackageStampSetter;
     [SerializeField] private SC_Package g_latestPackage;
 
     [Header("Timers")]
@@ -44,6 +45,9 @@ public class SC_StampManager : MonoBehaviour
     {
         //Adds color and icon to the package
         g_latestPackage.AddStamp(g_colorStampEnum, g_iconPackageStamp);
+
+        g_visualPackageStampSetter.MakeVisualIconOnPackage((int)g_iconPackageStamp,
+            (int)g_colorStampEnum, g_movingStampScript.gameObject.transform.position);
 
         SC_CameraManager.Instance.VieverToNewView(g_mainView);
 

@@ -7,13 +7,15 @@ public class SC_PoolPlayerStampOnPackage : MonoBehaviour
 	[SerializeField] private SC_StampOnPackage g_stampOnPackagePrefab = null;
 	[SerializeField] private SC_StampOnPackage[] g_stampsOnPackage = null;
 
+	[SerializeField] private int g_activeOverride;
+
 
 	private void Start()
 	{
-		MakeEnemies();
+		MakeStampsOnPackage();
 	}
 
-	private void MakeEnemies()
+	private void MakeStampsOnPackage()
 	{
 		g_stampsOnPackage = new SC_StampOnPackage[g_poolSize];
 
@@ -22,14 +24,51 @@ public class SC_PoolPlayerStampOnPackage : MonoBehaviour
 			//Create new bullet
 			SC_StampOnPackage newStampOnPackage = Instantiate<SC_StampOnPackage>(g_stampOnPackagePrefab);
 
-			//Paren object
+			//Parent object
 			newStampOnPackage.transform.parent = gameObject.transform;
-
-			//Deactivate it
-			newStampOnPackage.gameObject.SetActive(false);
 
 			g_stampsOnPackage[i] = newStampOnPackage;
 		}
+		DisableVisualStamps();
+	}
+
+
+	public void DisableVisualStamps()
+	{
+		for (int i = 0; i < g_poolSize; i++)
+		{
+			g_stampsOnPackage[i].gameObject.SetActive(false);
+		}
+	}
+
+	public void ActivateStampVisual(Sprite thisSprite, Color thisColor, Vector3 thisposition)
+	{
+		SC_StampOnPackage availableStampOnPackage = null;
+
+		for (int i = 0; i < g_stampsOnPackage.Length; i++)
+		{
+			if (g_stampsOnPackage[i].isActiveAndEnabled == false)
+			{
+				availableStampOnPackage = g_stampsOnPackage[i];
+				break;
+			}
+		}
+
+		if (availableStampOnPackage == null)
+		{
+			availableStampOnPackage = g_stampsOnPackage[g_activeOverride];
+
+			if (g_activeOverride >= g_stampsOnPackage.Length)
+				g_activeOverride = 0;
+			else
+				g_activeOverride++;
+		}
+
+		availableStampOnPackage.transform.position = thisposition;
+
+		availableStampOnPackage.VisualStampOnPackage(thisSprite, thisColor);
+		availableStampOnPackage.gameObject.SetActive(true);
+		//return availableShooterEnemies;
 	}
 
 }
