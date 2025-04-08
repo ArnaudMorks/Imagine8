@@ -13,6 +13,13 @@ public class SC_InputSoundEffects : MonoBehaviour
         TryToAssignAdioSource();
 
         SubscribeToClickInput();
+
+    }
+
+    private void OnDisable()
+    {
+        UnSubscribeToClickInput();
+
     }
 
     private void PlayAudio(Vector2 vector)

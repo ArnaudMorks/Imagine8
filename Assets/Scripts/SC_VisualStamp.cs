@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class SC_VisualStamp : MonoBehaviour
 {
+	[SerializeField] private Animator g_animatorStamp;
+
 	[SerializeField] private Sprite[] g_allStampIconSprites;
 	[SerializeField] private GameObject g_spriteStampObject;
 
@@ -13,6 +15,11 @@ public class SC_VisualStamp : MonoBehaviour
 	//Assumes the "g_allStampColors" is the same order as "PackageStampColor"
 	//"8" = grey; DOES NOT EXIST IN ENUM
 	[SerializeField] private Material[] g_allStampColors;
+
+	[SerializeField] private PackageStampColor g_currentStateColor;
+
+	//Match with animation on ink
+	[SerializeField] private float g_colorInkTime;
 
 
 	//MAKE BETTER SYSTEM LATER
@@ -60,10 +67,10 @@ public class SC_VisualStamp : MonoBehaviour
 
 	}
 
-
-	public void SetVisualColorStamp(PackageStampColor stampColorEnum)
+	//Executed from "SetCurrentAnimationStamp" when getting ink
+	private void SetVisualColorStamp()
 	{
-		g_currentStampColor = g_allStampColors[((int)stampColorEnum)];
+		g_currentStampColor = g_allStampColors[((int)g_currentStateColor)];
 
 		if (g_interactStampObjectParts[2].GetComponent<MeshRenderer>().material != null)
 			g_interactStampObjectParts[2].GetComponent<MeshRenderer>().material = g_currentStampColor;
@@ -71,9 +78,23 @@ public class SC_VisualStamp : MonoBehaviour
 			Debug.LogError("Couldn't find MeshRenderer in InteractStamp");
 	}
 
+
+	public void SetCurrentInk(PackageStampColor stampColorEnum)
+	{
+			g_currentStateColor = stampColorEnum;
+			SetCurrentAnimationStamp(1);
+			Invoke("SetVisualColorStamp", g_colorInkTime);
+
+	}
+
+	//"setCurrentAnimation": "0" = idle, "1" = stamping animation
+	public void SetCurrentAnimationStamp(int setCurrentAnimation)
+	{
+		g_animatorStamp.SetInteger("StampAnimState", setCurrentAnimation);
+	}
+
 	public void EnableStampVisual(PackageStampIcon iconStampEnum)
 	{
-		//take original; FOR LATER
 		SpriteRenderer spriteRenderer = g_spriteStampObject.GetComponent<SpriteRenderer>();
 		spriteRenderer.enabled = true;
 
@@ -93,7 +114,6 @@ public class SC_VisualStamp : MonoBehaviour
 
 	public void DisableStampVisual()
 	{
-		//put original back; FOR LATER
 		SpriteRenderer spriteRenderer = g_spriteStampObject.GetComponent<SpriteRenderer>();
 		spriteRenderer.enabled = false;
 
@@ -102,6 +122,9 @@ public class SC_VisualStamp : MonoBehaviour
 			MeshRenderer meshRenderer = g_interactStampObjectParts[i].GetComponent<MeshRenderer>();
 			meshRenderer.enabled = false;
 		}
+
+		//Reset animation to "idle"
+		SetCurrentAnimationStamp(0);
 	}
 
 }
