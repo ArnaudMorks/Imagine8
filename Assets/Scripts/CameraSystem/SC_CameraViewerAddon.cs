@@ -5,6 +5,7 @@
 // is to expand functionality of camera raycaster.
 //
 
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace CameraSystem
@@ -14,7 +15,7 @@ namespace CameraSystem
     {
         // Changeable
         [SerializeField] private SC_CameraView _mainView; // Requires manual input!
-
+        [SerializeField] private List<SC_CameraView> _subViews;
         // Currents
         private SC_CameraView _currentView;
         private GameObject _currentInterfaceOverlay;
@@ -85,7 +86,9 @@ namespace CameraSystem
 
                 _currentView = hitObject.GetComponent<SC_CameraView>();
                 MoveToView(_currentView.GetPositionerObject().transform);
-                _currentView.gameObject.SetActive(false);
+
+                foreach (var view in _subViews)
+                    view.gameObject.SetActive(false);
 
                 SC_StampManager stampManager = FindFirstObjectByType<SC_StampManager>();
                 ActivateInterfaceViewOverlay();
@@ -139,8 +142,8 @@ namespace CameraSystem
 
             DeactivateInterfaceViewOverlay();
 
-            if (_currentView != null)
-                _currentView.gameObject.SetActive(true);
+            foreach (var view in _subViews)
+                view.gameObject.SetActive(true);
 
             _currentView = _mainView;
             MoveToView(_mainView.GetPositionerObject().transform);
@@ -153,11 +156,14 @@ namespace CameraSystem
             if (_currentView != null)
             {
                 DeactivateInterfaceViewOverlay();
-                _currentView.gameObject.SetActive(true);
-
                 _currentView = cameraView;
                 MoveToView(_currentView.GetPositionerObject().transform);
-                _currentView.gameObject.SetActive(false);
+
+                if (cameraView.GetViewType() == SC_CameraViewTypeEnum.MAIN)
+                {
+                    foreach (var view in _subViews)
+                        view.gameObject.SetActive(true);
+                }
 
                 ActivateInterfaceViewOverlay();
             }

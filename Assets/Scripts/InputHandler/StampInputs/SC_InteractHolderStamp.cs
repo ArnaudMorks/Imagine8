@@ -70,6 +70,7 @@ public class SC_InteractHolderStamp : MonoBehaviour
     // On received hit result.
     private void ReceivedResult()
     {
+        print("Hitting");
         TurnToSideInteract();
     }
 
