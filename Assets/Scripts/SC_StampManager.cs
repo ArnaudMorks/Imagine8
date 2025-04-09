@@ -43,12 +43,17 @@ public class SC_StampManager : MonoBehaviour
 
     private void SetOnPackageStamp()
     {
-        //Adds color and icon to the package
-        g_latestPackage.AddStamp(g_colorStampEnum, g_iconPackageStamp);
+        //Check in case lever is pulled to soon
+        if (g_latestPackage != null)
+        {
+            //Adds color and icon to the package
+            g_latestPackage.AddStamp(g_colorStampEnum, g_iconPackageStamp);
 
-        g_visualPackageStampSetter.MakeVisualIconOnPackage((int)g_iconPackageStamp,
-            (int)g_colorStampEnum, g_movingStampScript.gameObject.transform.position,
-            g_latestPackage.gameObject.transform.position);
+            g_visualPackageStampSetter.MakeVisualIconOnPackage((int)g_iconPackageStamp,
+                (int)g_colorStampEnum, g_movingStampScript.gameObject.transform.position,
+                g_latestPackage.gameObject.transform.position);
+
+        }
 
         SC_CameraManager.Instance.VieverToNewView(g_mainView);
 
