@@ -39,6 +39,7 @@ public class SC_PoolPlayerStampOnPackage : MonoBehaviour
 		{
 			g_stampsOnPackage[i].gameObject.SetActive(false);
 		}
+		g_activeOverride = 0;
 	}
 
 	public void ActivateStampVisual(Sprite thisSprite, Color thisColor, Vector3 thisposition)
@@ -58,7 +59,7 @@ public class SC_PoolPlayerStampOnPackage : MonoBehaviour
 		{
 			availableStampOnPackage = g_stampsOnPackage[g_activeOverride];
 
-			if (g_activeOverride >= g_stampsOnPackage.Length)
+			if (g_activeOverride >= g_stampsOnPackage.Length - 1)
 				g_activeOverride = 0;
 			else
 				g_activeOverride++;

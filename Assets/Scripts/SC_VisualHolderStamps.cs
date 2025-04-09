@@ -15,7 +15,7 @@ public class SC_VisualHolderStamps : MonoBehaviour
 		switch (currentStampIcon)
 		{
 			case PackageStampIcon.SQUARE:
-				i = 0;
+				i = 9;
 				break;
 			case PackageStampIcon.STAR:
 				i = 1;
