@@ -25,7 +25,6 @@ public class SC_VisualPackageStampSetter : MonoBehaviour
 	{
 		float onPackageLocation;
 		onPackageLocation = movingStampBoundPosition - packageBoundPosition;
-		print(onPackageLocation);
 
 		if (onPackageLocation < 0)
 		{
