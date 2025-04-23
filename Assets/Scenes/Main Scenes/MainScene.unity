@@ -19940,11 +19940,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2490526559876802745, guid: 698206f38248fd440a5b8e316103dda6, type: 3}
       propertyPath: _stampValues.Array.data[0].Icon
-      value: 9
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2490526559876802745, guid: 698206f38248fd440a5b8e316103dda6, type: 3}
       propertyPath: _stampValues.Array.data[0].Color
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3090675705979443550, guid: 698206f38248fd440a5b8e316103dda6, type: 3}
       propertyPath: m_IsActive
