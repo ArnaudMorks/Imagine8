@@ -68,6 +68,9 @@ public class SC_PackageSpawner : MonoBehaviour
     {
         OnDeSpawnedPackage?.Invoke(_lastPackage);
 
+        SC_PoolPlayerStampOnPackage poolStampsOnPackage = FindFirstObjectByType<SC_PoolPlayerStampOnPackage>();
+        poolStampsOnPackage.DisableVisualStamps();
+
         Destroy(_lastPackage);
     }
 
